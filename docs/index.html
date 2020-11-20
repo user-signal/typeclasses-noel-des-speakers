@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
+<head>
+    <meta charset="utf-8"/>
 
     <title>Type Classes, Traits, Implicits... Bigre !</title>
 
-    <meta name="description" content="" />
-    <meta name="author" content="Frédéric Cabestre" />
+    <meta name="description" content=""/>
+    <meta name="author" content="Frédéric Cabestre"/>
 
-    <link rel="stylesheet" href="css/reveal.css" />
-    <link rel="stylesheet" href="myAssets/css/transparents.css" id="theme" />
+    <link rel="stylesheet" href="css/reveal.css"/>
+    <link rel="stylesheet" href="myAssets/css/transparents.css" id="theme"/>
 
     <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="lib/css/zenburn.css" />
+    <link rel="stylesheet" href="lib/css/zenburn.css"/>
 
     <!-- Printing and PDF exports -->
     <script>
@@ -23,63 +23,67 @@
         ? "css/print/pdf.css"
         : "css/print/paper.css";
       document.getElementsByTagName("head")[0].appendChild(link);
+    
+    
     </script>
 
     <!--[if lt IE 9]>
-      <script src="lib/js/html5shiv.js"></script>
+    <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body>
-    <div class="reveal">
-      <div class="slides">
+<body>
+<div class="reveal">
+    <div class="slides">
 
         <section>
-          <h2><span class="green">Type Classes</span>, <span class="green">Traits</span>, <span class="green">Implicits</span>...</h2>
-          <h1><span class="red">Bigre</span> <span>!</span></h1>
+            <h2><span class="green">Type Classes</span>, <span class="green">Traits</span>, <span class="green">Implicits</span>...
+            </h2>
+            <h1><span class="red">Bigre</span> <span>!</span></h1>
         </section>
 
         <section>
-          <div style="display: flex; justify-content: space-between">
-            <div style="margin-left: 2em; display: flex; flex-direction: column">
-              <div style="margin-top: 1em; text-align: left" class="green">Frédéric Cabestre</div>
-              <div style="font-size: smaller; text-align: left" class="blue">@fcabestre</div>
+            <div style="display: flex; justify-content: space-between">
+                <div style="margin-left: 2em; display: flex; flex-direction: column">
+                    <div style="margin-top: 1em; text-align: left" class="green">Frédéric Cabestre</div>
+                    <div style="font-size: smaller; text-align: left" class="blue">@fcabestre</div>
+                </div>
             </div>
-          </div>
-          <blockquote style="margin-top: 12em; margin-right: 2em; margin-bottom: 100%">
-            I'm not a number, I'm a freelance.
-            <div style="font-size: smaller">&mdash; Number 6, <a href="https://en.wikipedia.org/wiki/The_Prisoner">The Prisoner</a></div>
-          </blockquote>
+            <blockquote style="margin-top: 12em; margin-right: 2em; margin-bottom: 100%">
+                I'm not a number, I'm a freelance.
+                <div style="font-size: smaller">&mdash; Number 6, <a href="https://en.wikipedia.org/wiki/The_Prisoner">The
+                    Prisoner</a></div>
+            </blockquote>
         </section>
 
         <section>
-          <img src="myAssets/images/Wadler.png" alt="Making Ad-Hoc Polymorphism Less Ad-Hoc">
+            <img src="myAssets/images/Wadler.png" alt="Making Ad-Hoc Polymorphism Less Ad-Hoc">
         </section>
 
         <section>
-          <h2 style="margin-bottom: 1em">Polymorphisme(s)</h2>
-          <div class="fragment">
-            <div style="margin: 0 auto; width: 75%; text-align: left">Paramétrique</div>
-            <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="scala" style="max-height: 800px">
+            <h2 style="margin-bottom: 1em">Polymorphisme(s)</h2>
+            <div class="fragment">
+                <div style="margin: 0 auto; width: 75%; text-align: left">Paramétrique</div>
+                <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="scala" style="max-height: 800px">
               id :: a -> a                          [Haskell]
               struct List&lt;T&gt; : { public elem: T; }  [Rust]
             </code></pre>
-          </div>
-          <div class="fragment">
-            <div style="margin: auto; width: 75%; text-align: left">Sous Typage</div>
-            <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="scala" style="max-height: 800px">
+            </div>
+            <div class="fragment">
+                <div style="margin: auto; width: 75%; text-align: left">Sous Typage</div>
+                <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="scala" style="max-height: 800px">
               class Rectangle : Shape { ... }       [C#]
            </code></pre>
-          </div>
-          <div class="fragment">
-            <div style="margin: auto; width: 75%; text-align: left">Ad Hoc</div>
-            <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="scala" style="max-height: 800px">
+            </div>
+            <div class="fragment">
+                <div style="margin: auto; width: 75%; text-align: left">Ad Hoc</div>
+                <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="scala" style="max-height: 800px">
               + :: float * float -> float
               + :: string * string -> string
               ... 
            </code></pre>
-          </div>
-          <div style="margin-bottom: 100%"></div>
+            </div>
+            <div style="margin-bottom: 100%"></div>
         </section>
 
         <section>
@@ -95,31 +99,101 @@
         </section>
 
         <section>
-          <h2>Passage de Dictionnaires</h2>
+            <h2>Passage de Dictionnaires</h2>
         </section>
 
         <section>
-          <h2>Arguments Implicites</h2>
+            <h2>Arguments Implicites</h2>
         </section>
 
         <section>
-          <div style="display: flex; justify-content: space-between">
-            <div style="; margin-left: 2em; display: flex; flex-direction: column">
-              <div style="margin-top: 1em; text-align: left" class="green">Frédéric Cabestre</div>
-              <div style="font-size: smaller; text-align: left" class="blue">@fcabestre</div>
+            <h2>Rust</h2>
+            <pre class="fragment" style="font-size: 1.1ex; margin-top: 5em; margin-bottom: 100%"><code class="rust" style="max-height: 800px">
+                use std::hash::{Hash, Hasher};
+                use guid_create::GUID;
+
+                impl Hash for GUID {
+                    fn hash&lt;H: Hasher&gt;(&self, state: &mut H) {
+                        state.write_u32(self.0.data1());
+                        state.write_u16(self.0.data2());
+                        state.write_u16(self.0.data3());
+                        for b in self.0.data4().iter() {
+                            state.write_u8(*b)
+                        }
+                }
+            </code></pre>
+            <div class="fragment" style="position: absolute; top: 3em">
+                <img src="myAssets/images/rejected.png" alt="Rejected">
             </div>
-          </div>
-          <h1 style="margin-top: 1.5em ; margin-bottom: 100%">Merci</h1>
         </section>
 
-      </div>
+        <section>
+            <h2>Rust</h2>
+            <img style="margin-bottom: 100%"  src="myAssets/images/RustError.png" alt="RustError">
+        </section>
+
+        <section>
+            <h2>Rust</h2>
+            <div class="red" style="font-size: 150%; margin-top: 3em">
+                Only traits defined in the current crate 
+            </div>
+            <div class="red"  style="font-size: 150%; margin-top: 1em; margin-bottom: 100%">
+                can be implemented for arbitrary types.
+            </div>
+        </section>
+        
+        <section>
+            <h2>Rust</h2>
+            <pre class="fragment" style="font-size: 1.1ex; margin-top: 5em; margin-bottom: 100%"><code class="rust" style="max-height: 800px">
+                use guid_create::GUID;
+                
+                #[derive(Copy, Clone, PartialEq, Eq, Debug)]
+                pub struct HGuid(GUID);
+                
+                impl HGuid {
+                    pub fn new() -> HGuid {
+                        HGuid(GUID::rand())
+                    }
+                }
+            </code></pre>
+        </section>
+        
+        <section>
+            <h2>Rust</h2>
+            <pre class="fragment" style="font-size: 1.1ex; margin-top: 5em; margin-bottom: 100%"><code class="rust" style="max-height: 800px">
+                use std::hash::{Hash, Hasher};
+                
+                impl Hash for HGuid {
+                    fn hash&lt;H: Hasher&gt;(&self, state: &mut H) {
+                        state.write_u32(self.0.data1());
+                        state.write_u16(self.0.data2());
+                        state.write_u16(self.0.data3());
+                        for b in self.0.data4().iter() {
+                            state.write_u8(*b)
+                        }
+                    }
+                }
+            </code></pre>
+        </section>
+        
+        <section>
+            <div style="display: flex; justify-content: space-between">
+                <div style="; margin-left: 2em; display: flex; flex-direction: column">
+                    <div style="margin-top: 1em; text-align: left" class="green">Frédéric Cabestre</div>
+                    <div style="font-size: smaller; text-align: left" class="blue">@fcabestre</div>
+                </div>
+            </div>
+            <h1 style="margin-top: 1.5em ; margin-bottom: 100%">Merci</h1>
+        </section>
+
     </div>
+</div>
 
-    <script src="lib/js/head.min.js"></script>
-    <script src="js/reveal.js"></script>
-    <script src="myAssets/js/d3.min.js"></script>
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+<script src="myAssets/js/d3.min.js"></script>
 
-    <script>
+<script>
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
