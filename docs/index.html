@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
 
-    <title>Tagless Final, un pont entre théorie et pratique</title>
+    <title>Type Classes, Traits, Implicits... Bigre !</title>
 
     <meta name="description" content="" />
     <meta name="author" content="Frédéric Cabestre" />
@@ -35,8 +35,8 @@
       <div class="slides">
 
         <section>
-          <h1>Tagless Final</h1>
-          <h2><span class="green">Type Classes</span></h2>
+          <h2><span class="green">Type Classes</span>, <span class="green">Traits</span>, <span class="green">Implicits</span>...</h2>
+          <h1><span class="red">Bigre</span> <span>!</span></h1>
         </section>
 
         <section>
@@ -50,6 +50,56 @@
             I'm not a number, I'm a freelance.
             <div style="font-size: smaller">&mdash; Number 6, <a href="https://en.wikipedia.org/wiki/The_Prisoner">The Prisoner</a></div>
           </blockquote>
+        </section>
+
+        <section>
+          <img src="myAssets/images/Wadler.png" alt="Making Ad-Hoc Polymorphism Less Ad-Hoc">
+        </section>
+
+        <section>
+          <h2 style="margin-bottom: 1em">Polymorphisme(s)</h2>
+          <div class="fragment">
+            <div style="margin: 0 auto; width: 75%; text-align: left">Paramétrique</div>
+            <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="scala" style="max-height: 800px">
+              id :: a -> a                          [Haskell]
+              struct List&lt;T&gt; : { public elem: T; }  [Rust]
+            </code></pre>
+          </div>
+          <div class="fragment">
+            <div style="margin: auto; width: 75%; text-align: left">Sous Typage</div>
+            <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="scala" style="max-height: 800px">
+              class Rectangle : Shape { ... }       [C#]
+           </code></pre>
+          </div>
+          <div class="fragment">
+            <div style="margin: auto; width: 75%; text-align: left">Ad Hoc</div>
+            <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="scala" style="max-height: 800px">
+              + :: float * float -> float
+              + :: string * string -> string
+              ... 
+           </code></pre>
+          </div>
+          <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+          <img src="myAssets/images/Odersky.png" alt="Type Classes as Objects and Implicits">
+        </section>
+
+        <section>
+          <img src="myAssets/images/PoorMans.png" alt="Poor Mans's Type Classes">
+        </section>
+
+        <section>
+          <img src="myAssets/images/PoorMansHL.png" alt="Poor Mans's Type Classes">
+        </section>
+
+        <section>
+          <h2>Passage de Dictionnaires</h2>
+        </section>
+
+        <section>
+          <h2>Arguments Implicites</h2>
         </section>
 
         <section>
