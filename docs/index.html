@@ -64,24 +64,82 @@
             <h2 style="margin-bottom: 1em">Polymorphisme(s)</h2>
             <div class="fragment">
                 <div style="margin: 0 auto; width: 75%; text-align: left">Paramétrique</div>
-                <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="scala" style="max-height: 800px">
-              id :: a -> a                          [Haskell]
-              struct List&lt;T&gt; : { public elem: T; }  [Rust]
+                <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class=ocaml" style="max-height: 800px">
+                    
+                (* Objective Caml *)
+                    
+                # let rec map f l = match l with
+                  | h :: t -> (f h) :: (map f t)
+                  | nil -> nil
+                  ;;
+                val map : ('a -> 'a) -> 'a list -> 'a list = &lt;fun&gt;                    
+                    
+            </code></pre>
+                <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="rust" style="max-height: 800px">
+                    
+                // Rust
+                    
+                struct List&lt;T&gt; : { 
+                    public elem: T;
+                }
+                    
             </code></pre>
             </div>
-            <div class="fragment">
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2 style="margin-bottom: 1em">Polymorphisme(s)</h2>
+            <div>
                 <div style="margin: auto; width: 75%; text-align: left">Sous Typage</div>
-                <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="scala" style="max-height: 800px">
-              class Rectangle : Shape { ... }       [C#]
+                <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="csharp" style="max-height: 800px">
+                // C#  
+
+                interface Shape
+                {
+                    public double Area { get; }
+                }
+            
+                class Square : Shape {
+                    public double Side { get; set; }
+                    public double Area => Side * Side;
+                }    
+                                
+                class Circle : Shape {
+                    public double Radius { get; set; }
+                    public double Area => Radius * Radius * Math.PI;
+                }
+                    
+                shapes.Aggregate(0d, (acc, shape) => acc + shape.Area);    
            </code></pre>
             </div>
-            <div class="fragment">
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2 style="margin-bottom: 1em">Polymorphisme(s)</h2>
+            <div>
                 <div style="margin: auto; width: 75%; text-align: left">Ad Hoc</div>
-                <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="scala" style="max-height: 800px">
-              + :: float * float -> float
-              + :: string * string -> string
-              ... 
-           </code></pre>
+                <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="pascal" style="max-height: 800px">
+                    (* Pascal *)
+                    
+                    program Adhoc;
+                    
+                    function Add(x, y : Integer) : Integer;
+                    begin
+                        Add := x + y
+                    end;
+                    
+                    function Add(s, t : String) : String;
+                    begin
+                        Add := Concat(s, t)
+                    end;
+                    
+                    begin
+                        Writeln(Add(1, 2));                
+                        Writeln(Add('Hello, ', 'Mammals!'));  
+                    end.
+                </code></pre>
             </div>
             <div style="margin-bottom: 100%"></div>
         </section>

@@ -5,6 +5,4 @@ namespace Typeclasses
         public T Empty { get; }
         public T Add(T other);
     }
-    
-    public class IntMonoid : 
 }
