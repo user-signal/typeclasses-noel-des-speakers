@@ -1,6 +1,6 @@
 using System;
 
-namespace Typeclasses
+namespace Typeclasses.Polymorphism
 {
     interface Shape
     {

@@ -1,9 +1,8 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 
-namespace Typeclasses
+namespace Typeclasses.Polymorphism
 {
     [TestFixture]
     public class ShapeTest
