@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using NUnit.Framework;
 using static Typeclasses.Concept.Algorithm<string>;
 using static Typeclasses.Concept.Algorithm<int>;

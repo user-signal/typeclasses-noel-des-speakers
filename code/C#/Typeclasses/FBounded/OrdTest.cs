@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using NUnit.Framework;
 using static Typeclasses.FBounded.Algorithm<Typeclasses.FBounded.StringOrd>;
 using static Typeclasses.FBounded.Algorithm<Typeclasses.FBounded.IntOrd>;
