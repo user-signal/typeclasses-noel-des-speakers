@@ -3,7 +3,7 @@ package net.sigusr.concept
 import scala.collection.mutable.ArrayBuffer
 
 object Algorithm {
-  def Sort[T](source: Vector[T], ev: Ord[T]): Vector[T] = {
+  def Sort[T](source: Vector[T], ev: Ordered[T]): Vector[T] = {
     val result = ArrayBuffer[T]()
     for (sourceElem <- source) {
       val position = result.indexWhere(sortedElem => ev.gt(sortedElem, sourceElem)) match {
@@ -15,6 +15,6 @@ object Algorithm {
     result.toVector
   }
 
-  def Equality[T](vector1 : Vector[T], vector2 : Vector[T], ev : Ord[T]): Boolean =
+  def Equality[T](vector1 : Vector[T], vector2 : Vector[T], ev : Ordered[T]): Boolean =
     vector1.length == vector2.length && vector1.zip(vector2).forall(p => ev.eq(p._1, p._2))
 }

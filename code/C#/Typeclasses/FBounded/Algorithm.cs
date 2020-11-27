@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 namespace Typeclasses.FBounded
 {
-    public static class Algorithm<T> where T : Ord<T>
+    public static class Algorithm<T> where T : Ordered<T>
     {
         public static List<T> Sort(List<T> source)
         {

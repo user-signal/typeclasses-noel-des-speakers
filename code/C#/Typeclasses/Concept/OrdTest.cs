@@ -11,7 +11,7 @@ namespace Typeclasses.Concept
         [Test]
         public void IntOrdTest()
         {
-            var ev = new IntOrd();
+            var ev = new IntOrdered();
             var intOrds = new List<int> {1, -4, 42, 12};
             var actual = Sort(intOrds, ev);
             var expected = new List<int> {-4, 1, 12, 42};
@@ -21,7 +21,7 @@ namespace Typeclasses.Concept
         [Test]
         public void StringOrdTest()
         {
-            var ev = new StringOrd();
+            var ev = new StringOrdered();
             var stringOrds = new List<string> {"a", "z", "e", "r"};
             var actual = Sort(stringOrds, ev);
             var expected = new List<string> {"a", "e", "r", "z"};

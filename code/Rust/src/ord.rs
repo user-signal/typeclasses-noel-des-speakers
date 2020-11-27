@@ -1,14 +1,14 @@
-pub trait NSOrd {
-    fn gt(&self, that: &Self) -> bool;
-    fn eq(&self, that: &Self) -> bool;
+pub trait Ordered {
+    fn gt(l: &Self, r: &Self) -> bool;
+    fn eq(l: &Self, r: &Self) -> bool;
 }
 
-impl NSOrd for i32 {
-    fn gt(&self, that: &Self) -> bool { return self > that; }
-    fn eq(&self, that: &Self) -> bool { return self == that; }
+impl Ordered for i32 {
+    fn gt(l: &Self, r: &Self) -> bool { return l > r; }
+    fn eq(l: &Self, r: &Self) -> bool { return l == r; }
 }
 
-impl NSOrd for &str {
-    fn gt(&self, that: &Self) -> bool { return str::gt(*self, *that); }
-    fn eq(&self, that: &Self) -> bool { return str::eq(*self, *that); }
+impl Ordered for &str {
+    fn gt(l: &Self, r: &Self) -> bool { return str::gt(*l, *r); }
+    fn eq(l: &Self, r: &Self) -> bool { return str::eq(*l, *r); }
 }
