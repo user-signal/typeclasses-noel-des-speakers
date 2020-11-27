@@ -9,7 +9,7 @@ class OrdTest extends org.scalatest.funsuite.AnyFunSuite {
     val intOrds = Vector(1, -4, 42, 12)
     val actual = Sort(intOrds)
     val expected = Vector(-4, 1, 12, 42)
-    assert(Algorithm.ArrayEquals(actual, expected))
+    assert(Algorithm.Equality(actual, expected))
   }
 
   test("StringOrd Test") {
@@ -17,6 +17,6 @@ class OrdTest extends org.scalatest.funsuite.AnyFunSuite {
     val stringOrds = Vector("a", "z", "e", "r")
     val actual = Sort(stringOrds)
     val expected = Vector("a", "e", "r", "z")
-    assert(Algorithm.ArrayEquals(actual, expected))
+    assert(Algorithm.Equality(actual, expected))
   }
 }

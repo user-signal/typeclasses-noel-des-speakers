@@ -3,20 +3,18 @@ package net.sigusr.implicit0
 import scala.collection.mutable.ArrayBuffer
 
 object Algorithm {
-  def Sort[T](a: Vector[T])(implicit ev: Ord[T]): Vector[T] = {
-    val result = ArrayBuffer.from(a)
-    for (j <- a.indices) {
-      val key = a(j)
-      var i = j - 1
-      while (i > -1 && ev.gt(result(i), key)) {
-        result(i + 1) = result(i);
-        i = i - 1;
+  def Sort[T](source: Vector[T])(implicit ev: Ord[T]): Vector[T] = {
+    val result = ArrayBuffer[T]()
+    for (source_elem <- source) {
+      val position = result.indexWhere(sorted_elem => ev.gt(sorted_elem, source_elem)) match {
+        case -1 => result.length
+        case p => p
       }
-      result(i + 1) = key;
+      result.insert(position, source_elem)
     }
-    result;
-  }.toVector
+    result.toVector
+  }
 
-  def ArrayEquals[T](a : Vector[T], b : Vector[T])(implicit ev : Ord[T]): Boolean =
-    a.length == b.length && a.zip(b).forall(p => ev.eq(p._1, p._2))
+  def Equality[T](vector1 : Vector[T], vector2 : Vector[T])(implicit ev : Ord[T]): Boolean =
+    vector1.length == vector2.length && vector1.zip(vector2).forall(p => ev.eq(p._1, p._2))
 }

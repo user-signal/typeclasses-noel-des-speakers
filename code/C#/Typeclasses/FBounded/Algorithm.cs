@@ -1,26 +1,27 @@
 using System.Collections.Generic;
 using System.Linq;
+using NUnit.Framework;
 
 namespace Typeclasses.FBounded
 {
     public static class Algorithm<T> where T : Ord<T>
     {
-        public static T[] Sort(T[] a)
+        public static List<T> Sort(List<T> source)
         {
-            var result = new T[a.Length];
-            for (var j = 0; j < a.Length; j++) {
-                var key = a[j];
-                var i = j-1;
-                while (i > -1 && result[i].gt(key)) {
-                    result [i+1] = result[i];
-                    i--;
-                }
-                result[i+1] = key;
+            var result = new List<T>();
+            foreach (var sourceElem in source)
+            {
+                var position = result.FindIndex(sortedElem => sortedElem.gt(sourceElem)) switch
+                {
+                    -1 => result.Count,
+                    int p => p
+                };
+                result.Insert(position, sourceElem);
             }
             return result;
         }
 
-        public static bool ArrayEquals(T[] a, T[] b) => 
-            a.Length == b.Length && a.Zip(b).Aggregate(true, (acc, p) => acc && p.First.eq(p.Second));
+        public static bool Equality(List<T> list1, List<T> list2) => 
+            list1.Count == list2.Count && list1.Zip(list2).Aggregate(true, (acc, p) => acc && p.First.eq(p.Second));
     }
 }

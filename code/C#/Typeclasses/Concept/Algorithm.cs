@@ -5,22 +5,22 @@ namespace Typeclasses.Concept
 {
     public static class Algorithm<T>
     {
-        public static T[] Sort(T[] a, Ord<T> ev)
+        public static List<T> Sort(List<T> source, Ord<T> ev)
         {
-            var result = new T[a.Length];
-            for (var j = 0; j < a.Length; j++) {
-                var key = a[j];
-                var i = j-1;
-                while (i > -1 && ev.gt(result[i], key)) {
-                    result [i+1] = result[i];
-                    i--;
-                }
-                result[i+1] = key;
+            var result = new List<T>();
+            foreach (var sourceElem in source)
+            {
+                var position = result.FindIndex(sortedElem => ev.gt(sortedElem, sourceElem)) switch
+                {
+                    -1 => result.Count,
+                    int p => p
+                };
+                result.Insert(position, sourceElem);
             }
             return result;
         }
 
-        public static bool ArrayEquals(T[] a, T[] b, Ord<T> ev) => 
-            a.Length == b.Length && a.Zip(b).Aggregate(true, (acc, p) => acc && ev.eq(p.First, p.Second));
+        public static bool Equality(List<T> list1, List<T> list2, Ord<T> ev) => 
+            list1.Count == list2.Count && list1.Zip(list2).Aggregate(true, (acc, p) => acc && ev.eq(p.First, p.Second));
     }
 }
