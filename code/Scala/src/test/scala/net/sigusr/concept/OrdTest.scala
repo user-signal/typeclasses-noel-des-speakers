@@ -1,6 +1,7 @@
 package net.sigusr.concept
 
 import net.sigusr.concept.Algorithm.Sort
+import net.sigusr.concept.instances.{IntOrd, StringOrd}
 
 class OrdTest extends org.scalatest.funsuite.AnyFunSuite {
   

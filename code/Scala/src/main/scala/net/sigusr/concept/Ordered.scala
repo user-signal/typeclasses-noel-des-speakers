@@ -5,13 +5,15 @@ sealed trait Ordered[-T] {
   def eq(l: T, r: T): Boolean
 }
 
-object IntOrd extends Ordered[Int] {
-  override def gt(l: Int, r: Int): Boolean = l > r
-  override def eq(l: Int, r: Int): Boolean = l == r
-}
+object instances {
+  object IntOrd extends Ordered[Int] {
+    override def gt(l: Int, r: Int): Boolean = l > r
+    override def eq(l: Int, r: Int): Boolean = l == r
+  }
 
-object StringOrd extends Ordered[String] {
-  override def gt(l: String, r: String): Boolean = l > r
-  override def eq(l: String, r: String): Boolean = l == r
+  object StringOrd extends Ordered[String] {
+    override def gt(l: String, r: String): Boolean = l > r
+    override def eq(l: String, r: String): Boolean = l == r
+  }
 }
 

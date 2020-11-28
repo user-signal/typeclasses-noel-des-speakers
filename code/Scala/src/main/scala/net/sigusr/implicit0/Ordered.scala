@@ -6,12 +6,12 @@ sealed trait Ordered[-T] {
 }
 
 object instances {
-  implicit val intOrd: Ordered[Int] = new Ordered[Int] {
+  implicit object IntOrd extends Ordered[Int] {
     override def gt(l: Int, r: Int): Boolean = l > r
     override def eq(l: Int, r: Int): Boolean = l == r
   }
 
-  implicit val stringOrd: Ordered[String] = new Ordered[String] {
+  implicit object StringOrd extends Ordered[String] {
     override def gt(l: String, r: String): Boolean = l > r
     override def eq(l: String, r: String): Boolean = l == r
   } 
