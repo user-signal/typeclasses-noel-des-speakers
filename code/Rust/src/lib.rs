@@ -34,4 +34,13 @@ mod tests {
         let expected = vec!("a", "e", "r", "z");
         assert!(equality(&actual, &expected))
     }
+
+    #[test]
+    fn  pair_ord_test() {
+        use crate::algorithm::sort;
+        let pair_ords = vec!((1, "a"), (-4, "z"), (-4, "e"), (42, "r"));
+        let actual = sort(&pair_ords);
+        let expected = vec!((-4, "e"), (-4, "z"), (1, "a"), (42, "r"));
+        assert!(equality(&actual, &expected))
+    }
 }
