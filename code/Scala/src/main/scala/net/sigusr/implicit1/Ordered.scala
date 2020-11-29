@@ -16,7 +16,8 @@ object instances {
     override def eq(l: String, r: String): Boolean = l == r
   }
 
-  implicit def PairOrd[A, B](implicit ordA: Ordered[A], ordB: Ordered[B]): Ordered[(A, B)] = new Ordered[(A, B)] {
+  implicit def 
+  PairOrd[A, B](implicit ordA: Ordered[A], ordB: Ordered[B]): Ordered[(A, B)] = new Ordered[(A, B)] {
     override def gt(l: (A, B), r: (A, B)): Boolean = ordA.gt(l._1, r._1) || (ordA.eq(l._1, r._1) && ordB.gt(l._2, r._2))
     override def eq(l: (A, B), r: (A, B)): Boolean = ordA.eq(l._1, r._1) && ordB.eq(l._2, r._2)
   }

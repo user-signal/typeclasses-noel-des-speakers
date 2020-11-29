@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using NUnit.Framework;
-using static Typeclasses.Concept.Algorithm<string>;
 using static Typeclasses.Concept.Algorithm<int>;
+using static Typeclasses.Concept.Algorithm<string>;
+using static Typeclasses.Concept.Algorithm<(int, string)>;
 
 namespace Typeclasses.Concept
 {
@@ -25,6 +26,16 @@ namespace Typeclasses.Concept
             var stringOrds = new List<string> {"a", "z", "e", "r"};
             var actual = Sort(stringOrds, ev);
             var expected = new List<string> {"a", "e", "r", "z"};
+            Assert.IsTrue(Equality(actual, expected, ev));
+        }
+
+        [Test]
+        public void PairOrdTest()
+        {
+            var ev = new PairOrdered<int, string>() { evA = new IntOrdered(), evB = new StringOrdered()};;
+            var pairOrds = new List<(int, string)> {(1, "a"), (-4, "z"), (-4, "e"), (42, "r")};
+            var actual = Sort(pairOrds, ev);
+            var expected = new List<(int, string)> {(-4, "e"), (-4, "z"), (1, "a"), (42, "r")};
             Assert.IsTrue(Equality(actual, expected, ev));
         }
     }
