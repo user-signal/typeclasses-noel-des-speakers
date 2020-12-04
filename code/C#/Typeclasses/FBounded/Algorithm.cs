@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using NUnit.Framework;
 
 namespace Typeclasses.FBounded
 {
@@ -9,14 +8,14 @@ namespace Typeclasses.FBounded
         public static List<T> Sort(List<T> source)
         {
             var result = new List<T>();
-            foreach (var sourceElem in source)
+            foreach (var s in source)
             {
-                var position = result.FindIndex(sortedElem => sortedElem.gt(sourceElem)) switch
+                var position = result.FindIndex(r => r.gt(s)) switch
                 {
                     -1 => result.Count,
                     int p => p
                 };
-                result.Insert(position, sourceElem);
+                result.Insert(position, s);
             }
             return result;
         }

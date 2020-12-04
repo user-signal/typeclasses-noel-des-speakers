@@ -63,8 +63,8 @@
         <section>
             <h2 style="margin-bottom: 1em">Polymorphisme(s)</h2>
             <div class="fragment">
-                <div style="margin: 0 auto; width: 75%; text-align: left">Paramétrique</div>
-                <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class=ocaml" style="max-height: 800px">
+                <div style="margin: 0 auto; width: 98%; text-align: left">Paramétrique</div>
+                <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class=ocaml" style="max-height: 800px" data-noescape>
                     
                 (* Objective Caml *)
                     
@@ -91,7 +91,7 @@
         <section>
             <h2 style="margin-bottom: 1em">Polymorphisme(s)</h2>
             <div>
-                <div style="margin: auto; width: 75%; text-align: left">Sous Typage</div>
+                <div style="margin: auto; width: 98%; text-align: left">Sous Typage</div>
                 <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="csharp" style="max-height: 800px">
                 // C#  
 
@@ -119,7 +119,7 @@
         <section>
             <h2 style="margin-bottom: 1em">Polymorphisme(s)</h2>
             <div>
-                <div style="margin: auto; width: 75%; text-align: left">Ad Hoc</div>
+                <div style="margin: auto; width: 98%; text-align: left">Ad Hoc</div>
                 <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="pascal" style="max-height: 800px">
                     (* Pascal *)
                     
@@ -147,6 +147,64 @@
         <section>
           <img src="myAssets/images/Odersky.png" alt="Type Classes as Objects and Implicits">
         </section>
+        
+        <section>
+            <h2>Concept Pattern</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px">
+            public static class Algorithm&lt;T&gt; where T : Ordered&lt;T&gt;
+            {
+                public static List&lt;T&gt; Sort(List&lt;T&gt; source)
+                {
+                    var result = new List&lt;T&gt;();
+                    foreach (var s in source)
+                    {
+                        var position = result.FindIndex(r => r.gt(s)) switch
+                        {
+                            -1 => result.Count,
+                            int p => p
+                        };
+                        result.Insert(position, s);
+                    }
+                    return result;
+                }
+        
+                public static bool Equality(List&lt;T&gt; list1, List&lt;T&gt; list2) => 
+                    list1.Count == list2.Count && 
+                    list1.Zip(list2)
+                        .Aggregate(true, (acc, p) => acc && p.First.eq(p.Second));
+            }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>        
+
+        <section>
+            <h2>Concept Pattern</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
+            public static class Algorithm&lt;T&gt; where T : <span class="ch">Ordered&lt;T&gt;</span>
+            {
+                public static List&lt;T&gt; Sort(List&lt;T&gt; source)
+                {
+                    var result = new List&lt;T&gt;();
+                    foreach (var s in source)
+                    {
+                        var position = result.FindIndex(r => <span class="ch">r.gt(s)</span>) switch
+                        {
+                            -1 => result.Count,
+                            int p => p
+                        };
+                        result.Insert(position, s);
+                    }
+                    return result;
+                }
+        
+                public static bool Equality(List&lt;T&gt; list1, List&lt;T&gt; list2) => 
+                    list1.Count == list2.Count && 
+                    list1.Zip(list2)
+                        .Aggregate(true, (acc, p) => acc && <span class="ch">p.First.eq(p.Second)</span>);
+            }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>        
 
         <section>
           <img src="myAssets/images/PoorMans.png" alt="Poor Mans's Type Classes">

@@ -43,6 +43,10 @@ module.exports = grunt => {
 				implementation: sass,
 				sourceMap: false
 			},
+			myAssets: {
+				src: 'myAssets/css/transparents.scss',
+				dest: 'myAssets/css/transparents.css'
+			},
 			core: {
 				src: 'css/reveal.scss',
 				dest: 'css/reveal.css'
