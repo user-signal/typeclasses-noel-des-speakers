@@ -61,27 +61,27 @@
         </section>
 
         <section>
-            <h2 style="margin-bottom: 1em">Polymorphisme(s)</h2>
+            <h2>Polymorphisme(s)</h2>
             <div class="fragment">
-                <div style="margin: 0 auto; width: 98%; text-align: left">Paramétrique</div>
+                <div style="margin-right: auto; margin-left: auto; margin-top: 2em; width: 98%; text-align: left">Paramétrique</div>
                 <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class=ocaml" style="max-height: 800px" data-noescape>
                     
-                (* Objective Caml *)
-                    
-                # let rec map f l = match l with
-                  | h :: t -> (f h) :: (map f t)
-                  | nil -> nil
-                  ;;
-                val map : ('a -> 'a) -> 'a list -> 'a list = &lt;fun&gt;                    
+                            (* Objective Caml *)
+                                
+                            # let rec map f l = match l with
+                              | h :: t -> (f h) :: (map f t)
+                              | nil -> nil
+                              ;;
+                            val map : ('a -> 'a) -> 'a list -> 'a list = &lt;fun&gt;                    
                     
             </code></pre>
                 <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="rust" style="max-height: 800px">
                     
-                // Rust
-                    
-                struct List&lt;T&gt; : { 
-                    public elem: T;
-                }
+                            // Rust
+                                
+                            struct List&lt;T&gt; : { 
+                                public elem: T;
+                            }
                     
             </code></pre>
             </div>
@@ -89,56 +89,56 @@
         </section>
 
         <section>
-            <h2 style="margin-bottom: 1em">Polymorphisme(s)</h2>
+            <h2>Polymorphisme(s)</h2>
             <div>
-                <div style="margin: auto; width: 98%; text-align: left">Sous Typage</div>
+                <div style="margin-right: auto; margin-left: auto; margin-top: 2em; width: 98%; text-align: left">Sous Typage</div>
                 <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="csharp" style="max-height: 800px">
-                // C#  
-
-                interface Shape
-                {
-                    public double Area { get; }
-                }
+                            // C#  
             
-                class Square : Shape {
-                    public double Side { get; set; }
-                    public double Area => Side * Side;
-                }    
+                            interface Shape
+                            {
+                                public double Area { get; }
+                            }
+                        
+                            class Square : Shape {
+                                public double Side { get; set; }
+                                public double Area => Side * Side;
+                            }    
+                                            
+                            class Circle : Shape {
+                                public double Radius { get; set; }
+                                public double Area => Radius * Radius * Math.PI;
+                            }
                                 
-                class Circle : Shape {
-                    public double Radius { get; set; }
-                    public double Area => Radius * Radius * Math.PI;
-                }
-                    
-                shapes.Aggregate(0d, (acc, shape) => acc + shape.Area);    
+                            shapes.Aggregate(0d, (acc, shape) => acc + shape.Area);    
            </code></pre>
             </div>
             <div style="margin-bottom: 100%"></div>
         </section>
 
         <section>
-            <h2 style="margin-bottom: 1em">Polymorphisme(s)</h2>
+            <h2>Polymorphisme(s)</h2>
             <div>
-                <div style="margin: auto; width: 98%; text-align: left">Ad Hoc</div>
+                <div style="margin-right: auto; margin-left: auto; margin-top: 2em; width: 98%; text-align: left">Ad Hoc</div>
                 <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="pascal" style="max-height: 800px">
-                    (* Pascal *)
-                    
-                    program Adhoc;
-                    
-                    function Add(x, y : Integer) : Integer;
-                    begin
-                        Add := x + y
-                    end;
-                    
-                    function Add(s, t : String) : String;
-                    begin
-                        Add := Concat(s, t)
-                    end;
-                    
-                    begin
-                        Writeln(Add(1, 2));                
-                        Writeln(Add('Hello, ', 'Mammals!'));  
-                    end.
+                            (* Pascal *)
+                            
+                            program Adhoc;
+                            
+                            function Add(x, y : Integer) : Integer;
+                            begin
+                                Add := x + y
+                            end;
+                            
+                            function Add(s, t : String) : String;
+                            begin
+                                Add := Concat(s, t)
+                            end;
+                            
+                            begin
+                                Writeln(Add(1, 2));                
+                                Writeln(Add('Hello, ', 'Mammals!'));  
+                            end.
                 </code></pre>
             </div>
             <div style="margin-bottom: 100%"></div>
@@ -149,59 +149,166 @@
         </section>
         
         <section>
-            <h2>Concept Pattern</h2>
+            <h2>Paramétrique + Sous Typage</h2>
             <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px">
-            public static class Algorithm&lt;T&gt; where T : Ordered&lt;T&gt;
-            {
-                public static List&lt;T&gt; Sort(List&lt;T&gt; source)
+                public static class Algorithm&lt;T&gt; where T : Ordered&lt;T&gt;
                 {
-                    var result = new List&lt;T&gt;();
-                    foreach (var s in source)
+                    public static List&lt;T&gt; Sort(List&lt;T&gt; source)
                     {
-                        var position = result.FindIndex(r => r.gt(s)) switch
+                        var result = new List&lt;T&gt;();
+                        foreach (var s in source)
                         {
-                            -1 => result.Count,
-                            int p => p
-                        };
-                        result.Insert(position, s);
+                            var position = result.FindIndex(r => r.gt(s)) switch
+                            {
+                                -1 => result.Count,
+                                int p => p
+                            };
+                            result.Insert(position, s);
+                        }
+                        return result;
                     }
-                    return result;
+            
+                    public static bool Equality(List&lt;T&gt; list1, List&lt;T&gt; list2) => 
+                        list1.Count == list2.Count && 
+                        list1.Zip(list2)
+                            .Aggregate(true, (acc, p) => acc && p.First.eq(p.Second));
                 }
-        
-                public static bool Equality(List&lt;T&gt; list1, List&lt;T&gt; list2) => 
-                    list1.Count == list2.Count && 
-                    list1.Zip(list2)
-                        .Aggregate(true, (acc, p) => acc && p.First.eq(p.Second));
-            }
             </code></pre>
             <div style="margin-bottom: 100%"></div>
         </section>        
 
         <section>
-            <h2>Concept Pattern</h2>
+            <h2>Paramétrique + Sous Typage</h2>
             <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
-            public static class Algorithm&lt;T&gt; where T : <span class="ch">Ordered&lt;T&gt;</span>
-            {
-                public static List&lt;T&gt; Sort(List&lt;T&gt; source)
+                public static class Algorithm&lt;T&gt; where T : Ordered&lt;T&gt;
                 {
-                    var result = new List&lt;T&gt;();
-                    foreach (var s in source)
+                    public static <span class="ch">List&lt;T&gt;</span> Sort(<span class="ch">List&lt;T&gt;</span> source)
                     {
-                        var position = result.FindIndex(r => <span class="ch">r.gt(s)</span>) switch
+                        var result = new List&lt;T&gt;();
+                        foreach (var s in source)
                         {
-                            -1 => result.Count,
-                            int p => p
-                        };
-                        result.Insert(position, s);
+                            var position = result.FindIndex(r => r.gt(s)) switch
+                            {
+                                -1 => result.Count,
+                                int p => p
+                            };
+                            result.Insert(position, s);
+                        }
+                        return result;
                     }
-                    return result;
+            
+                    public static bool Equality(<span class="ch">List&lt;T&gt;</span> list1, <span class="ch">List&lt;T&gt;</span> list2) => 
+                        list1.Count == list2.Count && 
+                        list1.Zip(list2)
+                            .Aggregate(true, (acc, p) => acc && p.First.eq(p.Second));
                 }
-        
-                public static bool Equality(List&lt;T&gt; list1, List&lt;T&gt; list2) => 
-                    list1.Count == list2.Count && 
-                    list1.Zip(list2)
-                        .Aggregate(true, (acc, p) => acc && <span class="ch">p.First.eq(p.Second)</span>);
-            }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>        
+
+        <section>
+            <h2>Paramétrique + Sous Typage</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
+                public static class Algorithm&lt;T&gt; <span class="ch">where T : Ordered&lt;T&gt;</span>
+                {
+                    public static List&lt;T&gt; Sort(List&lt;T&gt; source)
+                    {
+                        var result = new List&lt;T&gt;();
+                        foreach (var s in source)
+                        {
+                            var position = result.FindIndex(r => <span class="ch">r.gt(s)</span>) switch
+                            {
+                                -1 => result.Count,
+                                int p => p
+                            };
+                            result.Insert(position, s);
+                        }
+                        return result;
+                    }
+            
+                    public static bool Equality(List&lt;T&gt; list1, List&lt;T&gt; list2) => 
+                        list1.Count == list2.Count && 
+                        list1.Zip(list2)
+                            .Aggregate(true, (acc, p) => acc && <span class="ch">p.First.eq(p.Second)</span>);
+                }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>        
+
+        <section>
+            <h2>Paramétrique + Sous Typage</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
+        public interface Ordered&lt;in T&gt;
+        {
+            bool gt(T that);
+            bool eq(T that);
+        }
+            </code></pre>
+            <pre class="fragment" style="font-size: 1.1ex; margin-top: 0.1ex"><code class="c#" style="max-height: 800px" data-noescape>
+        public class IntOrdered : Ordered&lt;IntOrdered&gt;
+        {
+            public int Value { get; set; }
+    
+            public bool gt(IntOrdered that) => this.Value > that.Value;
+            public bool eq(IntOrdered that) => this.Value == that.Value;
+        }
+            </code></pre>
+            <pre class="fragment" style="font-size: 1.1ex; margin-top: 0.1ex"><code class="c#" style="max-height: 800px" data-noescape>
+        public class StringOrdered : Ordered&lt;StringOrdered&gt;
+        {
+            public string Value { get; set; }
+    
+            public bool gt(StringOrdered that) => string.CompareOrdinal(this.Value, that.Value) > 0;
+            public bool eq(StringOrdered that) => string.CompareOrdinal(this.Value, that.Value) == 0;
+        }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>        
+
+        <section>
+            <h2>Paramétrique + Sous Typage</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
+                            public void IntOrdTest()
+                            {
+                                var intOrds = new List&lt;IntOrdered&gt; {
+                                    new IntOrdered {Value = 1}, 
+                                    new IntOrdered {Value = -4}, 
+                                    new IntOrdered {Value = 42}, 
+                                    new IntOrdered {Value = 12}
+                                };
+                                var actual = Sort(intOrds);
+                                var expected = new List&lt;IntOrdered&gt; {
+                                    new IntOrdered {Value = -4}, 
+                                    new IntOrdered {Value = 1}, 
+                                    new IntOrdered {Value = 12}, 
+                                    new IntOrdered {Value = 42}
+                                };
+                                Assert.IsTrue(Equality(actual, expected));
+                            }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>        
+
+        <section>
+            <h2>Paramétrique + Sous Typage</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
+                            public void StringOrdTest()
+                            {
+                                var stringOrds = new List&lt;StringOrdered&gt; {
+                                    new StringOrdered {Value = "a"}, 
+                                    new StringOrdered {Value = "z"}, 
+                                    new StringOrdered {Value = "e"}, 
+                                    new StringOrdered {Value = "r"}
+                                };
+                                var actual = Sort(stringOrds);
+                                var expected = new List&lt;StringOrdered&gt; {
+                                    new StringOrdered {Value = "a"}, 
+                                    new StringOrdered {Value = "e"}, 
+                                    new StringOrdered {Value = "r"}, 
+                                    new StringOrdered {Value = "z"}
+                                };
+                                Assert.IsTrue(Equality(actual, expected));
+                            }
             </code></pre>
             <div style="margin-bottom: 100%"></div>
         </section>        
