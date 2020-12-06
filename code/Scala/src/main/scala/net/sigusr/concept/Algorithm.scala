@@ -3,18 +3,19 @@ package net.sigusr.concept
 import scala.collection.mutable.ArrayBuffer
 
 object Algorithm {
-  def Sort[T](source: Vector[T], ev: Ordered[T]): Vector[T] = {
+  def Sort[T](source: Vector[T], model: Ordered[T]): Vector[T] = {
     val result = ArrayBuffer[T]()
-    for (sourceElem <- source) {
-      val position = result.indexWhere(sortedElem => ev.gt(sortedElem, sourceElem)) match {
+    for (s <- source) {
+      val position = result.indexWhere(r => model.gt(r, s)) match {
         case -1 => result.length
         case p => p
       }
-      result.insert(position, sourceElem)
+      result.insert(position, s)
     }
     result.toVector
   }
 
-  def Equality[T](vector1 : Vector[T], vector2 : Vector[T], ev : Ordered[T]): Boolean =
-    vector1.length == vector2.length && vector1.zip(vector2).forall(p => ev.eq(p._1, p._2))
+  def Equality[T](vector1 : Vector[T], vector2 : Vector[T], model : Ordered[T]): Boolean =
+    vector1.length == vector2.length && 
+      vector1.zip(vector2).forall(p => model.eq(p._1, p._2))
 }

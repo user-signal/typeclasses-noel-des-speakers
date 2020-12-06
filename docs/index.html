@@ -16,15 +16,15 @@
 
     <!-- Printing and PDF exports -->
     <script>
-      var link = document.createElement("link");
-      link.rel = "stylesheet";
-      link.type = "text/css";
-      link.href = window.location.search.match(/print-pdf/gi)
-        ? "css/print/pdf.css"
-        : "css/print/paper.css";
-      document.getElementsByTagName("head")[0].appendChild(link);
-    
-    
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = window.location.search.match(/print-pdf/gi)
+            ? "css/print/pdf.css"
+            : "css/print/paper.css";
+        document.getElementsByTagName("head")[0].appendChild(link);
+
+
     </script>
 
     <!--[if lt IE 9]>
@@ -63,8 +63,11 @@
         <section>
             <h2>Polymorphisme(s)</h2>
             <div class="fragment">
-                <div style="margin-right: auto; margin-left: auto; margin-top: 2em; width: 98%; text-align: left">Paramétrique</div>
-                <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class=ocaml" style="max-height: 800px" data-noescape>
+                <div style="margin-right: auto; margin-left: auto; margin-top: 2em; width: 98%; text-align: left">
+                    Paramétrique
+                </div>
+                <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class=ocaml" style="max-height: 800px"
+                                                                       data-noescape>
                     
                             (* Objective Caml *)
                                 
@@ -91,7 +94,9 @@
         <section>
             <h2>Polymorphisme(s)</h2>
             <div>
-                <div style="margin-right: auto; margin-left: auto; margin-top: 2em; width: 98%; text-align: left">Sous Typage</div>
+                <div style="margin-right: auto; margin-left: auto; margin-top: 2em; width: 98%; text-align: left">Sous
+                    Typage
+                </div>
                 <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="csharp" style="max-height: 800px">
                             // C#  
             
@@ -119,7 +124,9 @@
         <section>
             <h2>Polymorphisme(s)</h2>
             <div>
-                <div style="margin-right: auto; margin-left: auto; margin-top: 2em; width: 98%; text-align: left">Ad Hoc</div>
+                <div style="margin-right: auto; margin-left: auto; margin-top: 2em; width: 98%; text-align: left">Ad
+                    Hoc
+                </div>
                 <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="pascal" style="max-height: 800px">
                             (* Pascal *)
                             
@@ -145,9 +152,9 @@
         </section>
 
         <section>
-          <img src="myAssets/images/Odersky.png" alt="Type Classes as Objects and Implicits">
+            <img src="myAssets/images/Odersky.png" alt="Type Classes as Objects and Implicits">
         </section>
-        
+
         <section>
             <h2>Paramétrique + Sous Typage</h2>
             <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px">
@@ -169,13 +176,11 @@
                     }
             
                     public static bool Equality(List&lt;T&gt; list1, List&lt;T&gt; list2) => 
-                        list1.Count == list2.Count && 
-                        list1.Zip(list2)
-                            .Aggregate(true, (acc, p) => acc && p.First.eq(p.Second));
+                        list1.Count == list2.Count && list1.Zip(list2).All(p => p.First.eq(p.Second));
                 }
             </code></pre>
             <div style="margin-bottom: 100%"></div>
-        </section>        
+        </section>
 
         <section>
             <h2>Paramétrique + Sous Typage</h2>
@@ -198,13 +203,11 @@
                     }
             
                     public static bool Equality(<span class="ch">List&lt;T&gt;</span> list1, <span class="ch">List&lt;T&gt;</span> list2) => 
-                        list1.Count == list2.Count && 
-                        list1.Zip(list2)
-                            .Aggregate(true, (acc, p) => acc && p.First.eq(p.Second));
+                        list1.Count == list2.Count && list1.Zip(list2).All(p => p.First.eq(p.Second));
                 }
             </code></pre>
             <div style="margin-bottom: 100%"></div>
-        </section>        
+        </section>
 
         <section>
             <h2>Paramétrique + Sous Typage</h2>
@@ -227,13 +230,11 @@
                     }
             
                     public static bool Equality(List&lt;T&gt; list1, List&lt;T&gt; list2) => 
-                        list1.Count == list2.Count && 
-                        list1.Zip(list2)
-                            .Aggregate(true, (acc, p) => acc && <span class="ch">p.First.eq(p.Second)</span>);
+                        list1.Count == list2.Count && list1.Zip(list2).All(p => <span class="ch">p.First.eq(p.Second)</span>);
                 }
             </code></pre>
             <div style="margin-bottom: 100%"></div>
-        </section>        
+        </section>
 
         <section>
             <h2>Paramétrique + Sous Typage</h2>
@@ -263,7 +264,7 @@
         }
             </code></pre>
             <div style="margin-bottom: 100%"></div>
-        </section>        
+        </section>
 
         <section>
             <h2>Paramétrique + Sous Typage</h2>
@@ -287,7 +288,7 @@
                             }
             </code></pre>
             <div style="margin-bottom: 100%"></div>
-        </section>        
+        </section>
 
         <section>
             <h2>Paramétrique + Sous Typage</h2>
@@ -311,22 +312,628 @@
                             }
             </code></pre>
             <div style="margin-bottom: 100%"></div>
-        </section>        
-
-        <section>
-          <img src="myAssets/images/PoorMans.png" alt="Poor Mans's Type Classes">
         </section>
 
         <section>
-          <img src="myAssets/images/PoorMansHL.png" alt="Poor Mans's Type Classes">
+            <h2>Model / Concept</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
+                public static class Algorithm&lt;T&gt;
+                {
+                    public static List&lt;T&gt; Sort(List&lt;T&gt; source, Ordered&lt;T&gt; model)
+                    {
+                        var result = new List&lt;T&gt;();
+                        foreach (var s in source)
+                        {
+                            var position = result.FindIndex(r => model.gt(r, s)) switch
+                            {
+                                -1 => result.Count,
+                                int p => p
+                            };
+                            result.Insert(position, s);
+                        }
+            
+                        return result;
+                    }
+            
+                    public static bool Equality(List&lt;T&gt; list1, List&lt;T&gt; list2, Ordered&lt;T&gt; model) =>
+                        list1.Count == list2.Count && list1.Zip(list2).All(p => model.eq(p.First, p.Second));
+                }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
         </section>
 
         <section>
-            <h2>Passage de Dictionnaires</h2>
+            <h2>Model / Concept</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
+                public static class Algorithm&lt;T&gt;
+                {
+                    public static List&lt;T&gt; Sort(List&lt;T&gt; source, <span class="ch">Ordered&lt;T&gt; model</span>)
+                    {
+                        var result = new List&lt;T&gt;();
+                        foreach (var s in source)
+                        {
+                            var position = result.FindIndex(r => model.gt(r, s)) switch
+                            {
+                                -1 => result.Count,
+                                int p => p
+                            };
+                            result.Insert(position, s);
+                        }
+            
+                        return result;
+                    }
+            
+                    public static bool Equality(List&lt;T&gt; list1, List&lt;T&gt; list2, <span class="ch">Ordered&lt;T&gt; model</span>) =>
+                        list1.Count == list2.Count && list1.Zip(list2).All(p => model.eq(p.First, p.Second));
+                }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+        
+        <section>
+            <h2>Model / Concept</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
+                public static class Algorithm&lt;T&gt;
+                {
+                    public static List&lt;T&gt; Sort(List&lt;T&gt; source, Ordered&lt;T&gt; model)
+                    {
+                        var result = new List&lt;T&gt;();
+                        foreach (var s in source)
+                        {
+                            var position = result.FindIndex(r => <span class="ch">model.gt(r, s)</span>) switch
+                            {
+                                -1 => result.Count,
+                                int p => p
+                            };
+                            result.Insert(position, s);
+                        }
+            
+                        return result;
+                    }
+            
+                    public static bool Equality(List&lt;T&gt; list1, List&lt;T&gt; list2, Ordered&lt;T&gt;) =>
+                        list1.Count == list2.Count && list1.Zip(list2).All(p => <span class="ch">model.eq(p.First, p.Second)</span>);
+                }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+        
+        <section>
+            <h2>Model / Concept</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
+            public interface Ordered&lt;in T&gt;
+            {
+                bool gt(T l, T r);
+                bool eq(T l, T r);
+            }
+            </code></pre>
+            <pre class="fragment" style="font-size: 1.1ex; margin-top: 0.1ex"><code class="c#" style="max-height: 800px" data-noescape>
+            public class IntOrdered : Ordered&lt;int&gt;
+            {
+                public bool gt(int l, int r) => l > r;
+                public bool eq(int l, int r) => l == r;
+            }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+        
+        <section>
+            <h2>Model / Concept</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
+            public interface Ordered&lt;in T&gt;
+            {
+                bool gt(T l, T r);
+                bool eq(T l, T r);
+            }
+            </code></pre>
+            <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="c#" style="max-height: 800px" data-noescape>
+            public class IntOrdered : Ordered&lt;<span class="ch">int</span>&gt;
+            {
+                public bool gt(int l, int r) => l <span class="ch">></span> r;
+                public bool eq(int l, int r) => l == r;
+            }
+            </code></pre>
+            <pre class="fragment" style="font-size: 1.1ex; margin-top: 0.1ex"><code class="c#" style="max-height: 800px" data-noescape>
+            public class StringOrdered : Ordered&lt;string&gt;
+            {
+                public bool gt(string l, string r) => string.CompareOrdinal(l, r) > 0;
+                public bool eq(string l, string r) => string.CompareOrdinal(l, r) == 0;
+            }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+        
+        <section>
+            <h2>Model / Concept</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
+            public interface Ordered&lt;in T&gt;
+            {
+                bool gt(T l, T r);
+                bool eq(T l, T r);
+            }
+            </code></pre>
+            <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="c#" style="max-height: 800px" data-noescape>
+            public class IntOrdered : Ordered&lt;int&gt;
+            {
+                public bool gt(int l, int r) => l > r;
+                public bool eq(int l, int r) => l == r;
+            }
+            </code></pre>
+            <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="c#" style="max-height: 800px" data-noescape>
+            public class StringOrdered : Ordered&lt;<span class="ch">string</span>&gt;
+            {
+                public bool gt(string l, string r) => <span class="ch">string.CompareOrdinal</span>(l, r) > 0;
+                public bool eq(string l, string r) => string.CompareOrdinal(l, r) == 0;
+            }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+        
+        <section>
+            <h2>Model / Concept</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
+            public class PairOrdered&lt;A , B&gt; : Ordered&lt;(A, B)&gt;
+            {
+                public Ordered&lt;A&gt; modelA { get; set; }
+                public Ordered&lt;B&gt; modelB { get; set; }
+                
+                public bool gt((A, B) l, (A, B) r) => 
+                    modelA.gt(l.Item1, r.Item1) || 
+                    modelA.eq(l.Item1, r.Item1) && modelB.gt(l.Item2, r.Item2);
+                
+                public bool eq((A, B) l, (A, B) r) => 
+                    modelA.eq(l.Item1, r.Item1) && modelB.eq(l.Item2, r.Item2);
+            }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+        
+        <section>
+            <h2>Model / Concept</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
+            public class PairOrdered&lt;<span class="ch">A , B</span>&gt; : Ordered&lt;<span class="ch">(A, B)</span>&gt;
+            {
+                public Ordered&lt;A&gt; modelA { get; set; }
+                public Ordered&lt;B&gt; modelB { get; set; }
+                
+                public bool gt((A, B) l, (A, B) r) => 
+                    modelA.gt(l.Item1, r.Item1) || 
+                    modelA.eq(l.Item1, r.Item1) && modelB.gt(l.Item2, r.Item2);
+                
+                public bool eq((A, B) l, (A, B) r) => 
+                    modelA.eq(l.Item1, r.Item1) && modelB.eq(l.Item2, r.Item2);
+            }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+        
+        <section>
+            <h2>Model / Concept</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
+            public class PairOrdered&lt;A , B&gt; : Ordered&lt;(A, B)&gt;
+            {
+                public <span class="ch">Ordered&lt;A&gt; modelA</span> { get; set; }
+                public <span class="ch">Ordered&lt;B&gt; modelB</span> { get; set; }
+                
+                public bool gt((A, B) l, (A, B) r) => 
+                    modelA.gt(l.Item1, r.Item1) || 
+                    modelA.eq(l.Item1, r.Item1) && modelB.gt(l.Item2, r.Item2);
+                
+                public bool eq((A, B) l, (A, B) r) => 
+                    modelA.eq(l.Item1, r.Item1) && modelB.eq(l.Item2, r.Item2);
+            }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+        
+        <section>
+            <h2>Model / Concept</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
+        public void IntOrdTest()
+        {
+            var model = new IntOrdered();
+            var intOrds = new List&lt;int&gt; {1, -4, 42, 12};
+            var actual = Sort(intOrds, model);
+            var expected = new List&lt;int&gt; {-4, 1, 12, 42};
+            Assert.IsTrue(Equality(actual, expected, model));
+        }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+        
+        <section>
+            <h2>Model / Concept</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
+        public void IntOrdTest()
+        {
+            var model = <span class="ch">new IntOrdered()</span>;
+            var intOrds = new List&lt;int&gt; {1, -4, 42, 12};
+            var actual = Sort(intOrds, <span class="ch">model</span>);
+            var expected = new List&lt;int&gt; {-4, 1, 12, 42};
+            Assert.IsTrue(Equality(actual, expected, <span class="ch">model</span>));
+        }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+        
+        <section>
+            <h2>Model / Concept</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
+        public void IntOrdTest()
+        {
+            var model = new IntOrdered();
+            var intOrds = new List&lt;int&gt; {1, -4, 42, 12};
+            var actual = Sort(intOrds, model);
+            var expected = new List&lt;int&gt; {-4, 1, 12, 42};
+            Assert.IsTrue(Equality(actual, expected, model));
+        }
+            </code></pre>
+
+            <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="c#" style="max-height: 800px" data-noescape>
+        public void PairOrdTest()
+        {
+            var model = new PairOrdered&lt;int, string&gt;() { 
+                modelA = new IntOrdered(), 
+                modelB = new StringOrdered()
+            };
+            var pairOrds = new List&lt;(int, string)&gt; {(1, "a"), (-4, "z"), (-4, "e"), (42, "r")};
+            var actual = Sort(pairOrds, model);
+            var expected = new List&lt;(int, string)&gt; {(-4, "e"), (-4, "z"), (1, "a"), (42, "r")};
+            Assert.IsTrue(Equality(actual, expected, model));
+        }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+        
+        <section>
+            <h2>Poor Man's Type Clases</h2>
+            <img style="margin-bottom: 100%" src="myAssets/images/PoorMans.png" alt="Poor Mans's Type Classes">
+        </section>
+
+        <section>
+            <h2>Poor Man's Type Clases</h2>
+            <img style="margin-bottom: 100%"  src="myAssets/images/PoorMansHL.png" alt="Poor Mans's Type Classes">
+        </section>
+        
+        <section>
+            <h2>Arguments Implicites</h2>
+            <div style="margin-bottom: 100%"></div>
         </section>
 
         <section>
             <h2>Arguments Implicites</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="scala" style="max-height: 800px" data-noescape>
+        object Algorithm {
+          def Sort[T](source: Vector[T], model: Ordered[T]): Vector[T] = {
+            val result = ArrayBuffer[T]()
+            for (s <- source) {
+              val position = result.indexWhere(r => model.gt(r, s)) match {
+                case -1 => result.length
+                case p => p
+              }
+              result.insert(position, s)
+            }
+            result.toVector
+          }
+        
+          def Equality[T](vector1 : Vector[T], vector2 : Vector[T], model: Ordered[T]): Boolean =
+            vector1.length == vector2.length && 
+                vector1.zip(vector2).forall(p => model.eq(p._1, p._2))
+        }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Arguments Implicites</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="scala" style="max-height: 800px" data-noescape>
+        object Algorithm {
+          def Sort[T](source: Vector[T])(implicit model: Ordered[T]): Vector[T] = {
+            val result = ArrayBuffer[T]()
+            for (s <- source) {
+              val position = result.indexWhere(r => model.gt(r, s)) match {
+                case -1 => result.length
+                case p => p
+              }
+              result.insert(position, s)
+            }
+            result.toVector
+          }
+        
+          def Equality[T](vector1 : Vector[T], vector2 : Vector[T])(implicit model: Ordered[T]): Boolean =
+            vector1.length == vector2.length && 
+                vector1.zip(vector2).forall(p => model.eq(p._1, p._2))
+        }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Arguments Implicites</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="scala" style="max-height: 800px" data-noescape>
+        object Algorithm {
+          def Sort[T](source: Vector[T])<span class="ch">(implicit model: Ordered[T])</span>: Vector[T] = {
+            val result = ArrayBuffer[T]()
+            for (s <- source) {
+              val position = result.indexWhere(r => model.gt(r, s)) match {
+                case -1 => result.length
+                case p => p
+              }
+              result.insert(position, s)
+            }
+            result.toVector
+          }
+        
+          def Equality[T](vector1 : Vector[T], vector2 : Vector[T])<span class="ch">(implicit model: Ordered[T])</span>: Boolean =
+            vector1.length == vector2.length && 
+                vector1.zip(vector2).forall(p => model.eq(p._1, p._2))
+        }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Arguments Implicites</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="scala" style="max-height: 800px" data-noescape>
+        object Algorithm {
+          def Sort[T : Ordered](source: Vector[T]): Vector[T] = {
+            val result = ArrayBuffer[T]()
+            for (s <- source) {
+              val position = result.indexWhere(r => implicitly[Ordered[T]].gt(r, s)) match {
+                case -1 => result.length
+                case p => p
+              }
+              result.insert(position, s)
+            }
+            result.toVector
+          }
+          
+          def Equality[T : Ordered](vector1 : Vector[T], vector2 : Vector[T]): Boolean =
+            vector1.length == vector2.length && 
+                vector1.zip(vector2).forall(p => implicitly[Ordered[T]].eq(p._1, p._2))
+        } 
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Arguments Implicites</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="scala" style="max-height: 800px" data-noescape>
+        object Algorithm {
+          def Sort[<span class="ch">T : Ordered</span>](source: Vector[T]): Vector[T] = {
+            val result = ArrayBuffer[T]()
+            for (s <- source) {
+              val position = result.indexWhere(r => implicitly[Ordered[T]].gt(r, s)) match {
+                case -1 => result.length
+                case p => p
+              }
+              result.insert(position, s)
+            }
+            result.toVector
+          }
+          
+          def Equality[T : Ordered](vector1 : Vector[T], vector2 : Vector[T]): Boolean =
+            vector1.length == vector2.length && 
+                vector1.zip(vector2).forall(p => implicitly[Ordered[T]].eq(p._1, p._2))
+        } 
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Arguments Implicites</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="scala" style="max-height: 800px" data-noescape>
+        object Algorithm {
+          def Sort[<span class="ch">T : Ordered</span>](source: Vector[T]): Vector[T] = {
+            val result = ArrayBuffer[T]()
+            for (s <- source) {
+              val position = result.indexWhere(r => <span class="ch">implicitly[Ordered[T]]</span>.gt(r, s)) match {
+                case -1 => result.length
+                case p => p
+              }
+              result.insert(position, s)
+            }
+            result.toVector
+          }
+          
+          def Equality[T : Ordered](vector1 : Vector[T], vector2 : Vector[T]): Boolean =
+            vector1.length == vector2.length && 
+                vector1.zip(vector2).forall(p => <span class="ch">implicitly[Ordered[T]]</span>.eq(p._1, p._2))
+        } 
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Arguments Implicites</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="scala" style="max-height: 800px" data-noescape>
+                        sealed trait Ordered[-T] {
+                          def gt(l: T, r: T): Boolean
+                          def eq(l: T, r: T): Boolean
+                        }
+                        
+                        object instances {
+                          object IntOrd extends Ordered[Int] {
+                            override def gt(l: Int, r: Int): Boolean = l > r
+                            override def eq(l: Int, r: Int): Boolean = l == r
+                          }
+                        
+                          object StringOrd extends Ordered[String] {
+                            override def gt(l: String, r: String): Boolean = l > r
+                            override def eq(l: String, r: String): Boolean = l == r
+                          }
+                        }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Arguments Implicites</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="scala" style="max-height: 800px" data-noescape>
+                        sealed trait Ordered[-T] {
+                          def gt(l: T, r: T): Boolean
+                          def eq(l: T, r: T): Boolean
+                        }
+                        
+                        object instances {
+                          implicit object IntOrd extends Ordered[Int] {
+                            override def gt(l: Int, r: Int): Boolean = l > r
+                            override def eq(l: Int, r: Int): Boolean = l == r
+                          }
+                        
+                          implicit object StringOrd extends Ordered[String] {
+                            override def gt(l: String, r: String): Boolean = l > r
+                            override def eq(l: String, r: String): Boolean = l == r
+                          } 
+                        }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Arguments Implicites</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="scala" style="max-height: 800px" data-noescape>
+                        sealed trait Ordered[-T] {
+                          def gt(l: T, r: T): Boolean
+                          def eq(l: T, r: T): Boolean
+                        }
+                        
+                        object instances {
+                          <span class="ch">implicit</span> object IntOrd extends Ordered[Int] {
+                            override def gt(l: Int, r: Int): Boolean = l > r
+                            override def eq(l: Int, r: Int): Boolean = l == r
+                          }
+                        
+                          <span class="ch">implicit</span> object StringOrd extends Ordered[String] {
+                            override def gt(l: String, r: String): Boolean = l > r
+                            override def eq(l: String, r: String): Boolean = l == r
+                          } 
+                        }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Arguments Implicites</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="scala" style="max-height: 800px" data-noescape>
+    object instances {
+                
+      implicit def PairOrd[A, B](implicit modelA: Ordered[A], modelB: Ordered[B]): Ordered[(A, B)] = 
+ 
+          new Ordered[(A, B)] {
+                
+                override def gt(l: (A, B), r: (A, B)): Boolean = 
+                  modelA.gt(l._1, r._1) || 
+                    (modelA.eq(l._1, r._1) && modelB.gt(l._2, r._2))
+                
+                override def eq(l: (A, B), r: (A, B)): Boolean = 
+                  modelA.eq(l._1, r._1) && modelB.eq(l._2, r._2)
+          }
+    }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Arguments Implicites</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="scala" style="max-height: 800px" data-noescape>
+    object instances {
+                
+      <span class="ch">implicit def</span> PairOrd[A, B]<span class="ch">(implicit modelA: Ordered[A], modelB: Ordered[B])</span>: Ordered[(A, B)] = 
+  
+          new Ordered[(A, B)] {
+                
+                override def gt(l: (A, B), r: (A, B)): Boolean = 
+                  modelA.gt(l._1, r._1) || 
+                    (modelA.eq(l._1, r._1) && modelB.gt(l._2, r._2))
+                
+                override def eq(l: (A, B), r: (A, B)): Boolean = 
+                  modelA.eq(l._1, r._1) && modelB.eq(l._2, r._2)
+          }
+    }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Arguments Implicites</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="scala" style="max-height: 800px" data-noescape>
+    object instances {
+                
+      implicit def PairOrd[A, B](implicit modelA: Ordered[A], modelB: Ordered[B]): Ordered[(A, B)] = 
+   
+          <span class="ch">new Ordered[(A, B)]</span> {
+                
+                override def gt(l: (A, B), r: (A, B)): Boolean = 
+                  modelA.gt(l._1, r._1) || 
+                    (modelA.eq(l._1, r._1) && modelB.gt(l._2, r._2))
+                
+                override def eq(l: (A, B), r: (A, B)): Boolean = 
+                  modelA.eq(l._1, r._1) && modelB.eq(l._2, r._2)
+          }
+    }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Arguments Implicites</h2>
+            <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="scala" style="max-height: 800px" data-noescape>                 
+                      test("StringOrd Test") {
+                        import net.sigusr.implicit1.instances.StringOrd
+                        val stringOrds = Vector("a", "z", "e", "r")
+                        val actual = Sort(stringOrds)
+                        val expected = Vector("a", "e", "r", "z")
+                        assert(Algorithm.Equality(actual, expected))
+                      }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Arguments Implicites</h2>
+            <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="scala" style="max-height: 800px" data-noescape>                 
+                      test("StringOrd Test") {
+                        <span class="ch">import net.sigusr.implicit1.instances.StringOrd</span>
+                        val stringOrds = Vector("a", "z", "e", "r")
+                        val actual = Sort(stringOrds)
+                        val expected = Vector("a", "e", "r", "z")
+                        assert(Algorithm.Equality(actual, expected))
+                      }
+            </code></pre>
+            <pre class="fragment" style="font-size: 1.1ex; margin-top: 0.1ex"><code class="scala" style="max-height: 800px" data-noescape>                 
+                      test("PairOrd Test") {
+                        import net.sigusr.implicit1.instances.{IntOrd, PairOrd, StringOrd}
+                        val pairOrds = Vector((1, "a"), (-4, "z"), (-4, "e"), (42, "r"))
+                        val actual = Sort(pairOrds)
+                        val expected = Vector((-4, "e"), (-4, "z"), (1, "a"), (42, "r"))
+                        assert(Algorithm.Equality(actual, expected))
+                      }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Arguments Implicites</h2>
+            <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="scala" style="max-height: 800px" data-noescape>                 
+                      test("StringOrd Test") {
+                        import net.sigusr.implicit1.instances.StringOrd
+                        val stringOrds = Vector("a", "z", "e", "r")
+                        val actual = Sort(stringOrds)
+                        val expected = Vector("a", "e", "r", "z")
+                        assert(Algorithm.Equality(actual, expected))
+                      }
+            </code></pre>
+            <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="scala" style="max-height: 800px" data-noescape>                 
+                      test("PairOrd Test") {
+                        <span class="ch">import net.sigusr.implicit1.instances.{IntOrd, PairOrd, StringOrd}</span>
+                        val pairOrds = Vector((1, "a"), (-4, "z"), (-4, "e"), (42, "r"))
+                        val actual = Sort(pairOrds)
+                        val expected = Vector((-4, "e"), (-4, "z"), (1, "a"), (42, "r"))
+                        assert(Algorithm.Equality(actual, expected))
+                      }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
         </section>
 
         <section>
@@ -352,19 +959,19 @@
 
         <section>
             <h2>Rust</h2>
-            <img style="margin-bottom: 100%"  src="myAssets/images/RustError.png" alt="RustError">
+            <img style="margin-bottom: 100%" src="myAssets/images/RustError.png" alt="RustError">
         </section>
 
         <section>
             <h2>Rust</h2>
             <div class="red" style="font-size: 150%; margin-top: 3em">
-                Only traits defined in the current crate 
+                Only traits defined in the current crate
             </div>
-            <div class="red"  style="font-size: 150%; margin-top: 1em; margin-bottom: 100%">
+            <div class="red" style="font-size: 150%; margin-top: 1em; margin-bottom: 100%">
                 can be implemented for arbitrary types.
             </div>
         </section>
-        
+
         <section>
             <h2>Rust</h2>
             <pre class="fragment" style="font-size: 1.1ex; margin-top: 5em; margin-bottom: 100%"><code class="rust" style="max-height: 800px">
@@ -380,7 +987,7 @@
                 }
             </code></pre>
         </section>
-        
+
         <section>
             <h2>Rust</h2>
             <pre class="fragment" style="font-size: 1.1ex; margin-top: 5em; margin-bottom: 100%"><code class="rust" style="max-height: 800px">
@@ -398,7 +1005,7 @@
                 }
             </code></pre>
         </section>
-        
+
         <section>
             <div style="display: flex; justify-content: space-between">
                 <div style="; margin-left: 2em; display: flex; flex-direction: column">
@@ -417,9 +1024,9 @@
 <script src="myAssets/js/d3.min.js"></script>
 
 <script>
-      // Full list of configuration options available at:
-      // https://github.com/hakimel/reveal.js#configuration
-      Reveal.initialize({
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
         controls: false,
         progress: false,
         history: true,
@@ -430,52 +1037,52 @@
         transition: "none", // none/fade/slide/convex/concave/zoom
 
         math: {
-          mathjax: "myAssets/js/MathJax.js",
-          config: "TeX-AMS_HTML-full", // See http://docs.mathjax.org/en/latest/config-files.html
+            mathjax: "myAssets/js/MathJax.js",
+            config: "TeX-AMS_HTML-full", // See http://docs.mathjax.org/en/latest/config-files.html
         },
 
         // Optional reveal.js plugins
         dependencies: [
-          { src: "plugin/math/math.js", async: true },
-          {
-            src: "lib/js/classList.js",
-            condition: function () {
-              return !document.body.classList;
+            {src: "plugin/math/math.js", async: true},
+            {
+                src: "lib/js/classList.js",
+                condition: function () {
+                    return !document.body.classList;
+                },
             },
-          },
-          {
-            src: "plugin/markdown/marked.js",
-            condition: function () {
-              return !!document.querySelector("[data-markdown]");
+            {
+                src: "plugin/markdown/marked.js",
+                condition: function () {
+                    return !!document.querySelector("[data-markdown]");
+                },
             },
-          },
-          {
-            src: "plugin/markdown/markdown.js",
-            condition: function () {
-              return !!document.querySelector("[data-markdown]");
+            {
+                src: "plugin/markdown/markdown.js",
+                condition: function () {
+                    return !!document.querySelector("[data-markdown]");
+                },
             },
-          },
-          {
-            src: "plugin/highlight/highlight.js",
-            async: true,
-            condition: function () {
-              return !!document.querySelector("pre code");
+            {
+                src: "plugin/highlight/highlight.js",
+                async: true,
+                condition: function () {
+                    return !!document.querySelector("pre code");
+                },
+                callback: function () {
+                    hljs.initHighlightingOnLoad();
+                },
             },
-            callback: function () {
-              hljs.initHighlightingOnLoad();
+            {src: "plugin/zoom-js/zoom.js", async: true},
+            {src: "plugin/notes/notes.js", async: true},
+            {
+                d3: "myAssets/js/d3.min.js",
+                src: "myAssets/js/reveal-svg-fragment.js",
+                condition: function () {
+                    return !!document.querySelector("[data-svg-fragment]");
+                },
             },
-          },
-          { src: "plugin/zoom-js/zoom.js", async: true },
-          { src: "plugin/notes/notes.js", async: true },
-          {
-            d3: "myAssets/js/d3.min.js",
-            src: "myAssets/js/reveal-svg-fragment.js",
-            condition: function () {
-              return !!document.querySelector("[data-svg-fragment]");
-            },
-          },
         ],
-      });
-    </script>
-  </body>
+    });
+</script>
+</body>
 </html>

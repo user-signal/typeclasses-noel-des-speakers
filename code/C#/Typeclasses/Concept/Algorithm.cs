@@ -5,12 +5,12 @@ namespace Typeclasses.Concept
 {
     public static class Algorithm<T>
     {
-        public static List<T> Sort(List<T> source, Ordered<T> ev)
+        public static List<T> Sort(List<T> source, Ordered<T> model)
         {
             var result = new List<T>();
             foreach (var s in source)
             {
-                var position = result.FindIndex(r => ev.gt(r, s)) switch
+                var position = result.FindIndex(r => model.gt(r, s)) switch
                 {
                     -1 => result.Count,
                     int p => p
@@ -21,9 +21,7 @@ namespace Typeclasses.Concept
             return result;
         }
 
-        public static bool Equality(List<T> list1, List<T> list2, Ordered<T> ev) =>
-            list1.Count == list2.Count &&
-            list1.Zip(list2)
-                .Aggregate(true, (acc, p) => acc && ev.eq(p.First, p.Second));
+        public static bool Equality(List<T> list1, List<T> list2, Ordered<T> model) =>
+            list1.Count == list2.Count && list1.Zip(list2).All(p => model.eq(p.First, p.Second));
     }
 }

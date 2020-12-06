@@ -17,10 +17,11 @@ namespace Typeclasses.FBounded
                 };
                 result.Insert(position, s);
             }
+
             return result;
         }
 
-        public static bool Equality(List<T> list1, List<T> list2) => 
-            list1.Count == list2.Count && list1.Zip(list2).Aggregate(true, (acc, p) => acc && p.First.eq(p.Second));
+        public static bool Equality(List<T> list1, List<T> list2) =>
+            list1.Count == list2.Count && list1.Zip(list2).All(p => p.First.eq(p.Second));
     }
 }
