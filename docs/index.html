@@ -937,8 +937,45 @@
         </section>
 
         <section>
+            <h2>Haskell</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="haskell" style="max-height: 800px">
+                        insert :: Ordered a => a -> [a] -> [a]
+                        insert elem [] = [elem]
+                        insert elem (h:t) = if gt elem h then h:(insert elem t) else elem:h:t
+                        
+                        sort :: Ordered a => [a] -> [a]
+                        sort = foldr insert [] 
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Haskell</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="haskell" style="max-height: 800px">
+                        class Ordered a where
+                          gt :: a -> a -> Bool 
+                          eq :: a -> a -> Bool 
+            </code></pre>             
+            <pre class="fragment" style="font-size: 1.1ex; margin-top: 0.1ex"><code class="haskell" style="max-height: 800px">
+                        instance Ordered Integer where
+                          gt r l = r > l
+                          eq r l = r == l
+                          
+                        instance Ordered String where
+                          gt r l = r > l
+                          eq r l = r == l
+            </code></pre>
+            <pre class="fragment" style="font-size: 1.1ex; margin-top: 0.1ex"><code class="haskell" style="max-height: 800px">                 
+                        instance (Ordered a, Ordered b) => Ordered (a, b) where
+                          gt (r1, r2) (l1, l2) = gt r1 l1 || (eq r1 l1 && gt r2 l2)
+                          eq (r1, r2) (l1, l2) = eq r1 l1 && eq r2 l2
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
             <h2>Rust</h2>
-            <pre class="fragment" style="font-size: 1.1ex; margin-top: 5em; margin-bottom: 100%"><code class="rust" style="max-height: 800px">
+            <pre style="font-size: 1.1ex; margin-top: 5em; margin-bottom: 100%"><code class="rust" style="max-height: 800px">
                 use std::hash::{Hash, Hasher};
                 use guid_create::GUID;
 
