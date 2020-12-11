@@ -62,37 +62,6 @@
 
         <section>
             <h2>Polymorphisme(s)</h2>
-            <div class="fragment">
-                <div style="margin-right: auto; margin-left: auto; margin-top: 2em; width: 98%; text-align: left">
-                    Paramétrique
-                </div>
-                <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class=ocaml" style="max-height: 800px"
-                                                                       data-noescape>
-                    
-                            (* Objective Caml *)
-                                
-                            # let rec map f l = match l with
-                              | h :: t -> (f h) :: (map f t)
-                              | nil -> nil
-                              ;;
-                            val map : ('a -> 'a) -> 'a list -> 'a list = &lt;fun&gt;                    
-                    
-            </code></pre>
-                <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="rust" style="max-height: 800px">
-                    
-                            // Rust
-                                
-                            struct List&lt;T&gt; : { 
-                                public elem: T;
-                            }
-                    
-            </code></pre>
-            </div>
-            <div style="margin-bottom: 100%"></div>
-        </section>
-
-        <section>
-            <h2>Polymorphisme(s)</h2>
             <div>
                 <div style="margin-right: auto; margin-left: auto; margin-top: 2em; width: 98%; text-align: left">Sous
                     Typage
@@ -117,6 +86,37 @@
                                 
                             shapes.Aggregate(0d, (acc, shape) => acc + shape.Area);    
            </code></pre>
+            </div>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Polymorphisme(s)</h2>
+            <div>
+                <div style="margin-right: auto; margin-left: auto; margin-top: 2em; width: 98%; text-align: left">
+                    Paramétrique
+                </div>
+                <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class=ocaml" style="max-height: 800px"
+                                                                       data-noescape>
+                    
+                            (* Objective Caml *)
+                                
+                            # let rec map f l = match l with
+                              | h :: t -> (f h) :: (map f t)
+                              | nil -> nil
+                              ;;
+                            val map : ('a -> 'a) -> 'a list -> 'a list = &lt;fun&gt;                    
+                    
+            </code></pre>
+                <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="rust" style="max-height: 800px">
+                    
+                            // Rust
+                                
+                            struct List&lt;T&gt; : { 
+                                public elem: T;
+                            }
+                    
+            </code></pre>
             </div>
             <div style="margin-bottom: 100%"></div>
         </section>
@@ -249,7 +249,6 @@
         public class IntOrdered : Ordered&lt;IntOrdered&gt;
         {
             public int Value { get; set; }
-    
             public bool gt(IntOrdered that) => this.Value > that.Value;
             public bool eq(IntOrdered that) => this.Value == that.Value;
         }
@@ -258,7 +257,6 @@
         public class StringOrdered : Ordered&lt;StringOrdered&gt;
         {
             public string Value { get; set; }
-    
             public bool gt(StringOrdered that) => string.CompareOrdinal(this.Value, that.Value) > 0;
             public bool eq(StringOrdered that) => string.CompareOrdinal(this.Value, that.Value) == 0;
         }
@@ -430,7 +428,7 @@
             public class IntOrdered : Ordered&lt;<span class="ch">int</span>&gt;
             {
                 public bool gt(int l, int r) => l <span class="ch">></span> r;
-                public bool eq(int l, int r) => l == r;
+                public bool eq(int l, int r) => l <span class="ch">==</span> r;
             }
             </code></pre>
             <pre class="fragment" style="font-size: 1.1ex; margin-top: 0.1ex"><code class="c#" style="max-height: 800px" data-noescape>
@@ -462,8 +460,8 @@
             <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="c#" style="max-height: 800px" data-noescape>
             public class StringOrdered : Ordered&lt;<span class="ch">string</span>&gt;
             {
-                public bool gt(string l, string r) => <span class="ch">string.CompareOrdinal</span>(l, r) > 0;
-                public bool eq(string l, string r) => string.CompareOrdinal(l, r) == 0;
+                public bool gt(string l, string r) => <span class="ch">string.CompareOrdinal(l, r)</span> > 0;
+                public bool eq(string l, string r) => <span class="ch">string.CompareOrdinal(l, r)</span> == 0;
             }
             </code></pre>
             <div style="margin-bottom: 100%"></div>
@@ -586,6 +584,35 @@
         </section>
         
         <section>
+            <h2>Model / Concept</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
+        public void IntOrdTest()
+        {
+            var model = new IntOrdered();
+            var intOrds = new List&lt;int&gt; {1, -4, 42, 12};
+            var actual = Sort(intOrds, model);
+            var expected = new List&lt;int&gt; {-4, 1, 12, 42};
+            Assert.IsTrue(Equality(actual, expected, model));
+        }
+            </code></pre>
+
+            <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="c#" style="max-height: 800px" data-noescape>
+        public void PairOrdTest()
+        {
+            var <span class="ch">model</span> = <span class="ch">new PairOrdered&lt;int, string&gt;()</span> { 
+                modelA = <span class="ch">new IntOrdered()</span>, 
+                modelB = <span class="ch">new StringOrdered()</span>
+            };
+            var pairOrds = new List&lt;(int, string)&gt; {(1, "a"), (-4, "z"), (-4, "e"), (42, "r")};
+            var actual = Sort(pairOrds, <span class="ch">model</span>);
+            var expected = new List&lt;(int, string)&gt; {(-4, "e"), (-4, "z"), (1, "a"), (42, "r")};
+            Assert.IsTrue(Equality(actual, expected, <span class="ch">model</span>));
+        }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+        
+        <section>
             <h2>Poor Man's Type Clases</h2>
             <img style="margin-bottom: 100%" src="myAssets/images/PoorMans.png" alt="Poor Mans's Type Classes">
         </section>
@@ -597,6 +624,7 @@
         
         <section>
             <h2>Arguments Implicites</h2>
+            todo
             <div style="margin-bottom: 100%"></div>
         </section>
 
@@ -712,7 +740,7 @@
             result.toVector
           }
           
-          def Equality[T : Ordered](vector1 : Vector[T], vector2 : Vector[T]): Boolean =
+          def Equality[<span class="ch">T : Ordered</span>](vector1 : Vector[T], vector2 : Vector[T]): Boolean =
             vector1.length == vector2.length && 
                 vector1.zip(vector2).forall(p => implicitly[Ordered[T]].eq(p._1, p._2))
         } 
@@ -736,7 +764,7 @@
             result.toVector
           }
           
-          def Equality[T : Ordered](vector1 : Vector[T], vector2 : Vector[T]): Boolean =
+          def Equality[<span class="ch">T : Ordered</span>](vector1 : Vector[T], vector2 : Vector[T]): Boolean =
             vector1.length == vector2.length && 
                 vector1.zip(vector2).forall(p => <span class="ch">implicitly[Ordered[T]]</span>.eq(p._1, p._2))
         } 
@@ -865,11 +893,11 @@
           <span class="ch">new Ordered[(A, B)]</span> {
                 
                 override def gt(l: (A, B), r: (A, B)): Boolean = 
-                  modelA.gt(l._1, r._1) || 
-                    (modelA.eq(l._1, r._1) && modelB.gt(l._2, r._2))
+                  <span class="ch">modelA.gt(l._1, r._1)</span> || 
+                    (<span class="ch">modelA.eq(l._1, r._1)</span> && <span class="ch">modelB.gt(l._2, r._2)</span>)
                 
                 override def eq(l: (A, B), r: (A, B)): Boolean = 
-                  modelA.eq(l._1, r._1) && modelB.eq(l._2, r._2)
+                  <span class="ch">modelA.eq(l._1, r._1)</span> && <span class="ch">modelB.eq(l._2, r._2)</span>
           }
     }
             </code></pre>
@@ -878,7 +906,7 @@
 
         <section>
             <h2>Arguments Implicites</h2>
-            <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="scala" style="max-height: 800px" data-noescape>                 
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="scala" style="max-height: 800px" data-noescape>                 
                       test("StringOrd Test") {
                         import net.sigusr.implicit1.instances.StringOrd
                         val stringOrds = Vector("a", "z", "e", "r")
@@ -892,7 +920,7 @@
 
         <section>
             <h2>Arguments Implicites</h2>
-            <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="scala" style="max-height: 800px" data-noescape>                 
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="scala" style="max-height: 800px" data-noescape>                 
                       test("StringOrd Test") {
                         <span class="ch">import net.sigusr.implicit1.instances.StringOrd</span>
                         val stringOrds = Vector("a", "z", "e", "r")
@@ -915,7 +943,7 @@
 
         <section>
             <h2>Arguments Implicites</h2>
-            <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="scala" style="max-height: 800px" data-noescape>                 
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="scala" style="max-height: 800px" data-noescape>                 
                       test("StringOrd Test") {
                         import net.sigusr.implicit1.instances.StringOrd
                         val stringOrds = Vector("a", "z", "e", "r")
@@ -937,6 +965,280 @@
         </section>
 
         <section>
+            <h2>Rust</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="rust" style="max-height: 800px" data-noescape>
+                pub fn sort&lt;T: Ordered + Clone&gt;(source: &Vec&lt;T&gt;) -> Vec&lt;T&gt; {
+                    let mut result: Vec&lt;T&gt; = Vec::new();
+                    for s in source {
+                        let position =
+                            match result.iter().position(|r| Ordered::gt(r, &s)) {
+                                None => result.len(),
+                                Some(p) => p
+                            };
+                        result.insert(position, s.clone());
+                    }
+                    return result;
+                }
+                
+                pub fn equality&lt;T: Ordered>(vector1: &Vec&lt;T&gt;, vector2: &Vec&lt;T&gt;) -> bool {
+                    vector1.len() == 
+                        vector2.len() && 
+                        vector1.iter()
+                            .zip(vector2.iter())
+                            .all(|p| Ordered::eq(p.0, p.1))
+                }            
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+        
+        <section>
+            <h2>Rust</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="rust" style="max-height: 800px" data-noescape>
+                pub fn sort&lt;<span class="ch">T: Ordered</span> + Clone&gt;(source: &Vec&lt;T&gt;) -> Vec&lt;T&gt; {
+                    let mut result: Vec&lt;T&gt; = Vec::new();
+                    for s in source {
+                        let position =
+                            match result.iter().position(|r| <span class="ch">Ordered::gt(r, &s)</span>) {
+                                None => result.len(),
+                                Some(p) => p
+                            };
+                        result.insert(position, s.clone());
+                    }
+                    return result;
+                }
+                
+                pub fn equality&lt;<span class="ch">T: Ordered</span>>(vector1: &Vec&lt;T&gt;, vector2: &Vec&lt;T&gt;) -> bool {
+                    vector1.len() == 
+                        vector2.len() && 
+                        vector1.iter()
+                            .zip(vector2.iter())
+                            .all(|p| <span class="ch">Ordered::eq(p.0, p.1)</span>)
+                }            
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Rust</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="rust" style="max-height: 800px" data-noescape>
+                pub fn sort&lt;T: Ordered + <span class="ch">Clone</span>&gt;(source: &Vec&lt;T&gt;) -> Vec&lt;T&gt; {
+                    let mut result: Vec&lt;T&gt; = Vec::new();
+                    for s in source {
+                        let position =
+                            match result.iter().position(|r| Ordered::gt(r, &s)) {
+                                None => result.len(),
+                                Some(p) => p
+                            };
+                        result.insert(position, <span class="ch">s.clone()</span>);
+                    }
+                    return result;
+                }
+                
+                pub fn equality&lt;T: Ordered>(vector1: &Vec&lt;T&gt;, vector2: &Vec&lt;T&gt;) -> bool {
+                    vector1.len() == 
+                        vector2.len() && 
+                        vector1.iter()
+                            .zip(vector2.iter())
+                            .all(|p| Ordered::eq(p.0, p.1))
+                }            
+        </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Rust</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="rust" style="max-height: 800px">
+                    pub trait Ordered {
+                        fn gt(l: &Self, r: &Self) -> bool;
+                        fn eq(l: &Self, r: &Self) -> bool;
+                    }
+            </code></pre>
+            <pre class="fragment" style="font-size: 1.1ex; margin-top: 0.1ex"><code class="rust" style="max-height: 800px">                 
+                    impl Ordered for i32 {
+                        fn gt(l: &Self, r: &Self) -> bool { return l > r; }
+                        fn eq(l: &Self, r: &Self) -> bool { return l == r; }
+                    }
+                    
+                    impl Ordered for &str {
+                        fn gt(l: &Self, r: &Self) -> bool { return str::gt(*l, *r); }
+                        fn eq(l: &Self, r: &Self) -> bool { return str::eq(*l, *r); }
+                    }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Rust</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="rust" style="max-height: 800px" data-noescape>
+                    pub trait Ordered {
+                        fn gt(l: &Self, r: &Self) -> bool;
+                        fn eq(l: &Self, r: &Self) -> bool;
+                    }
+            </code></pre>
+            <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="rust" style="max-height: 800px" data-noescape>                 
+                    impl Ordered for <span class="ch">i32</span> {
+                        fn gt(l: &Self, r: &Self) -> bool { return l <span class="ch">></span> r; }
+                        fn eq(l: &Self, r: &Self) -> bool { return l <span class="ch">==</span> r; }
+                    }
+                    
+                    impl Ordered for <span class="ch">&str</span> {
+                        fn gt(l: &Self, r: &Self) -> bool { return <span class="ch">str::gt(*l, *r)</span>; }
+                        fn eq(l: &Self, r: &Self) -> bool { return <span class="ch">str::eq(*l, *r)</span>; }
+                    }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Rust</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="rust" style="max-height: 800px" data-noescape>
+                    impl&lt;A: Ordered, B: Ordered&gt; Ordered for (A, B) {
+                
+                        fn gt(l: &Self, r: &Self) -> bool {
+                            A::gt(&l.0, &r.0) || (A::eq(&l.0, &r.0) && B::gt(&l.1, &r.1))
+                        }
+                
+                        fn eq(l: &Self, r: &Self) -> bool {
+                            A::eq(&l.0, &r.0) && B::eq(&l.1, &r.1)
+                        }
+                    }                
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Rust</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="rust" style="max-height: 800px" data-noescape>
+                    impl&lt;<span class="ch">A: Ordered, </span><span class="ch">B: Ordered</span>&gt; Ordered for <span class="ch">(A, B)</span> {
+                
+                        fn gt(l: &Self, r: &Self) -> bool {
+                            <span class="ch">A::gt(&l.0, &r.0)</span> || (<span class="ch">A::eq(&l.0, &r.0)</span> && <span class="ch">B::gt(&l.1, &r.1)</span>)
+                        }
+                
+                        fn eq(l: &Self, r: &Self) -> bool {
+                            <span class="ch">A::eq(&l.0, &r.0)</span> && <span class="ch">B::eq(&l.1, &r.1)</span>
+                        }
+                    }                
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Rust</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="rust" style="max-height: 800px" data-noescape>
+                    #[test]
+                    fn  string_ord_test() {
+                        use crate::algorithm::sort;
+                        let string_ords = vec!("a", "z", "e", "r");
+                        let actual = sort(&string_ords);
+                        let expected = vec!("a", "e", "r", "z");
+                        assert!(equality(&actual, &expected))
+                    }
+            </code></pre>
+            <pre class="fragment" style="font-size: 1.1ex; margin-top: 0.1ex"><code class="rust" style="max-height: 800px" data-noescape>                 
+                    #[test]
+                    fn  pair_ord_test() {
+                        use crate::algorithm::sort;
+                        let pair_ords = vec!((1, "a"), (-4, "z"), (-4, "e"), (42, "r"));
+                        let actual = sort(&pair_ords);
+                        let expected = vec!((-4, "e"), (-4, "z"), (1, "a"), (42, "r"));
+                        assert!(equality(&actual, &expected))
+                    }
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Rust</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex; margin-bottom: 100%"><code class="rust" style="max-height: 800px">
+                    use std::hash::{Hash, Hasher};
+                    use guid_create::GUID;
+        
+                    impl Hash for GUID {
+                        fn hash&lt;H: Hasher&gt;(&self, state: &mut H) {
+                            state.write_u32(self.0.data1());
+                            state.write_u16(self.0.data2());
+                            state.write_u16(self.0.data3());
+                            for b in self.0.data4().iter() {
+                                state.write_u8(*b)
+                            }
+                    }
+            </code></pre>
+        </section>    
+
+        <section>
+            <h2>Rust</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex; margin-bottom: 100%"><code class="rust" style="max-height: 800px"  data-noescape>
+                    use std::hash::{Hash, Hasher};
+                    use <span class="ch">guid_create::GUID</span>;
+        
+                    impl Hash for GUID {
+                        fn hash&lt;H: Hasher&gt;(&self, state: &mut H) {
+                            state.write_u32(self.0.data1());
+                            state.write_u16(self.0.data2());
+                            state.write_u16(self.0.data3());
+                            for b in self.0.data4().iter() {
+                                state.write_u8(*b)
+                            }
+                    }
+            </code></pre>
+            <div class="fragment" style="position: absolute; top: 3ex">
+                <img style="background-color: rgba(0,0,0,0)" src="myAssets/images/rejected.png" alt="Rejected">
+            </div>
+        </section>    
+
+        <section>
+            <h2>Rust</h2>
+            <img style="margin-bottom: 100%" src="myAssets/images/RustError.png" alt="RustError">
+        </section>
+
+        <section>
+            <h2>Rust</h2>
+            <div style="font-size: 150%; margin-top: 3ex">
+                ❝ Only traits defined in the <span class="magenta">current crate</span>
+            </div>
+            <div style="font-size: 150%; margin-top: 1ex; margin-bottom: 100%">
+                can be implemented for <span class="magenta">arbitrary types </span>❞
+            </div>
+        </section>
+
+        <section>
+            <h2>Rust</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex; margin-bottom: 100%"><code class="rust" style="max-height: 800px">
+                    use guid_create::GUID;
+                    
+                    #[derive(Copy, Clone, PartialEq, Eq, Debug)]
+                    pub struct HGuid(GUID);
+                    
+                    impl HGuid {
+                        pub fn new() -> HGuid {
+                            HGuid(GUID::rand())
+                        }
+                    }
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Rust</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex; margin-bottom: 100%"><code class="rust" style="max-height: 800px">
+                    use std::hash::{Hash, Hasher};
+                    
+                    impl Hash for HGuid {
+                        fn hash&lt;H: Hasher&gt;(&self, state: &mut H) {
+                            state.write_u32(self.0.data1());
+                            state.write_u16(self.0.data2());
+                            state.write_u16(self.0.data3());
+                            for b in self.0.data4().iter() {
+                                state.write_u8(*b)
+                            }
+                        }
+                    }
+            </code></pre>
+        </section>
+
+    </section>
+
+        <section>
             <h2>Haskell</h2>
             <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="haskell" style="max-height: 800px">
                         insert :: Ordered a => a -> [a] -> [a]
@@ -951,8 +1253,31 @@
 
         <section>
             <h2>Haskell</h2>
-            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="haskell" style="max-height: 800px">
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="haskell" style="max-height: 800px" data-noescape>
+                        insert :: <span class="ch">Ordered a =></span> a -> [a] -> [a]
+                        insert elem [] = [elem]
+                        insert elem (h:t) = if gt elem h then h:(insert elem t) else elem:h:t
+                        
+                        sort :: <span class="ch">Ordered a =></span> [a] -> [a]
+                        sort = foldr insert [] 
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Haskell</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="haskell" style="max-height: 800px" data-noescape>
                         class Ordered a where
+                          gt :: a -> a -> Bool 
+                          eq :: a -> a -> Bool 
+            </code></pre>             
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Haskell</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="haskell" style="max-height: 800px" data-noescape>
+                        <span class="ch">class</span> Ordered a <span class="ch">where</span>
                           gt :: a -> a -> Bool 
                           eq :: a -> a -> Bool 
             </code></pre>             
@@ -965,6 +1290,25 @@
                           gt r l = r > l
                           eq r l = r == l
             </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Haskell</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="haskell" style="max-height: 800px">
+                        class Ordered a where
+                          gt :: a -> a -> Bool 
+                          eq :: a -> a -> Bool 
+            </code></pre>             
+            <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="haskell" style="max-height: 800px" data-noescape>
+                        <span class="ch">instance</span> Ordered Integer <span class="ch">where</span>
+                          gt r l = r > l
+                          eq r l = r == l
+                          
+                        <span class="ch">instance</span> Ordered String <span class="ch">where</span>
+                          gt r l = r > l
+                          eq r l = r == l
+            </code></pre>
             <pre class="fragment" style="font-size: 1.1ex; margin-top: 0.1ex"><code class="haskell" style="max-height: 800px">                 
                         instance (Ordered a, Ordered b) => Ordered (a, b) where
                           gt (r1, r2) (l1, l2) = gt r1 l1 || (eq r1 l1 && gt r2 l2)
@@ -974,73 +1318,51 @@
         </section>
 
         <section>
-            <h2>Rust</h2>
-            <pre style="font-size: 1.1ex; margin-top: 5em; margin-bottom: 100%"><code class="rust" style="max-height: 800px">
-                use std::hash::{Hash, Hasher};
-                use guid_create::GUID;
-
-                impl Hash for GUID {
-                    fn hash&lt;H: Hasher&gt;(&self, state: &mut H) {
-                        state.write_u32(self.0.data1());
-                        state.write_u16(self.0.data2());
-                        state.write_u16(self.0.data3());
-                        for b in self.0.data4().iter() {
-                            state.write_u8(*b)
-                        }
-                }
+            <h2>Haskell</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="haskell" style="max-height: 800px">
+                        class Ordered a where
+                          gt :: a -> a -> Bool 
+                          eq :: a -> a -> Bool 
+            </code></pre>             
+            <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="haskell" style="max-height: 800px">
+                        instance Ordered Integer where
+                          gt r l = r > l
+                          eq r l = r == l
+                          
+                        instance Ordered String where
+                          gt r l = r > l
+                          eq r l = r == l
             </code></pre>
-            <div class="fragment" style="position: absolute; top: 3em">
-                <img src="myAssets/images/rejected.png" alt="Rejected">
-            </div>
-        </section>
-
-        <section>
-            <h2>Rust</h2>
-            <img style="margin-bottom: 100%" src="myAssets/images/RustError.png" alt="RustError">
-        </section>
-
-        <section>
-            <h2>Rust</h2>
-            <div class="red" style="font-size: 150%; margin-top: 3em">
-                Only traits defined in the current crate
-            </div>
-            <div class="red" style="font-size: 150%; margin-top: 1em; margin-bottom: 100%">
-                can be implemented for arbitrary types.
-            </div>
-        </section>
-
-        <section>
-            <h2>Rust</h2>
-            <pre class="fragment" style="font-size: 1.1ex; margin-top: 5em; margin-bottom: 100%"><code class="rust" style="max-height: 800px">
-                use guid_create::GUID;
-                
-                #[derive(Copy, Clone, PartialEq, Eq, Debug)]
-                pub struct HGuid(GUID);
-                
-                impl HGuid {
-                    pub fn new() -> HGuid {
-                        HGuid(GUID::rand())
-                    }
-                }
+            <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="haskell" style="max-height: 800px" data-noescape>                 
+                        instance <span class="ch">(Ordered a, Ordered b)</span> => Ordered <span class="ch">(a, b)</span> where
+                          <span class="ch">gt</span> (r1, r2) (l1, l2) = <span class="ch">gt</span> r1 l1 || (<span class="ch">eq</span> r1 l1 && <span class="ch">gt</span> r2 l2)
+                          <span class="ch">eq</span> (r1, r2) (l1, l2) = <span class="ch">eq</span> r1 l1 && <span class="ch">eq</span> r2 l2
             </code></pre>
+            <div style="margin-bottom: 100%"></div>
         </section>
 
         <section>
-            <h2>Rust</h2>
-            <pre class="fragment" style="font-size: 1.1ex; margin-top: 5em; margin-bottom: 100%"><code class="rust" style="max-height: 800px">
-                use std::hash::{Hash, Hasher};
-                
-                impl Hash for HGuid {
-                    fn hash&lt;H: Hasher&gt;(&self, state: &mut H) {
-                        state.write_u32(self.0.data1());
-                        state.write_u16(self.0.data2());
-                        state.write_u16(self.0.data3());
-                        for b in self.0.data4().iter() {
-                            state.write_u8(*b)
-                        }
-                    }
-                }
+            <h2>Haskell</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="haskell" style="max-height: 800px" data-noescape>
+                    Loaded GHCi configuration from /tmp/haskell-stack-ghci/a76106fb/ghci-script
+
+                    *Ordered Algorithm Ordered> sort [(1, "a"), (-4, "z"), (-4, "e"), (42, "r")]
+                    [(-4,"e"),(-4,"z"),(1,"a"),(42,"r")]
+
+                    *Ordered Algorithm Ordered>        
             </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Ressources</h2>
+            <ul style="margin-top: 2em">
+                <li class="fragment" style="margin-top: 0.8em">How to make <span style="font-style: italic">ad-hoc</span> polymorphism less <span style="font-style: italic">ad hoc</span><a href="https://people.csail.mit.edu/dnj/teaching/6898/papers/wadler88.pdf"> [PDF]</a></li>
+                <li class="fragment">Implementing Haskell Overloading<a href="https://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=C02DC718FB099579B7F83B4D4E1079E5?doi=10.1.1.54.7639&rep=rep1&type=pdf"> [PDF]</a></li>
+                <li class="fragment">Implementing, and Understanding Type Classes<a href="http://okmij.org/ftp/Computation/typeclass.html"> [BLOG]</a></li>
+                <li class="fragment">Type Classes as Objects and Implicits<a href="https://ropas.snu.ac.kr/~bruno/papers/TypeClasses.pdf"> [PDF]</a></li>
+                <li class="fragment" style="margin-top: 1ex">Code de cette présentation<a href="https://github.com/user-signal/typeclasses-noel-des-speakers/tree/master/code"> [CODE]</a></li>
+            </ul>
         </section>
 
         <section>
