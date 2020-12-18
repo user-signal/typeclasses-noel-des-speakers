@@ -337,6 +337,9 @@ body {
   vertical-align: sub;
   font-size: smaller; }
 
+.reveal iframe {
+  border: none; }
+
 .reveal pre {
   width: 98%;
   font-size: 0.40em;
