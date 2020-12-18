@@ -630,8 +630,7 @@
                 <li style="margin-top: 1em; font-size: larger" class="fragment orange">Liaison Dynamique</li>
             </ul>
         </section>
-
-
+        
         <section>
             <h2>Poor Man's Type Clases</h2>
             <img style="margin-bottom: 100%" src="myAssets/images/PoorMans.png" alt="Poor Mans's Type Classes">
@@ -1016,6 +1015,122 @@
             </code></pre>
             <div style="margin-bottom: 100%"></div>
         </section>
+        
+        <section>
+            <h2>Haskell</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="haskell" style="max-height: 800px">
+                        insert :: Ordered a => a -> [a] -> [a]
+                        insert elem [] = [elem]
+                        insert elem (h:t) = if gt elem h then h:(insert elem t) else elem:h:t
+                        
+                        sort :: Ordered a => [a] -> [a]
+                        sort = foldr insert [] 
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Haskell</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="haskell" style="max-height: 800px" data-noescape>
+                        insert :: <span class="ch">Ordered a =></span> a -> [a] -> [a]
+                        insert elem [] = [elem]
+                        insert elem (h:t) = if gt elem h then h:(insert elem t) else elem:h:t
+                        
+                        sort :: <span class="ch">Ordered a =></span> [a] -> [a]
+                        sort = foldr insert [] 
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Haskell</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="haskell" style="max-height: 800px" data-noescape>
+                        class Ordered a where
+                          gt :: a -> a -> Bool 
+                          eq :: a -> a -> Bool 
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Haskell</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="haskell" style="max-height: 800px" data-noescape>
+                        <span class="ch">class</span> Ordered a <span class="ch">where</span>
+                          gt :: a -> a -> Bool 
+                          eq :: a -> a -> Bool 
+            </code></pre>
+            <pre class="fragment" style="font-size: 1.1ex; margin-top: 0.1ex"><code class="haskell" style="max-height: 800px">
+                        instance Ordered Integer where
+                          gt r l = r > l
+                          eq r l = r == l
+                          
+                        instance Ordered String where
+                          gt r l = r > l
+                          eq r l = r == l
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Haskell</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="haskell" style="max-height: 800px">
+                        class Ordered a where
+                          gt :: a -> a -> Bool 
+                          eq :: a -> a -> Bool 
+            </code></pre>
+            <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="haskell" style="max-height: 800px" data-noescape>
+                        <span class="ch">instance</span> Ordered Integer <span class="ch">where</span>
+                          gt r l = r > l
+                          eq r l = r == l
+                          
+                        <span class="ch">instance</span> Ordered String <span class="ch">where</span>
+                          gt r l = r > l
+                          eq r l = r == l
+            </code></pre>
+            <pre class="fragment" style="font-size: 1.1ex; margin-top: 0.1ex"><code class="haskell" style="max-height: 800px">                 
+                        instance (Ordered a, Ordered b) => Ordered (a, b) where
+                          gt (r1, r2) (l1, l2) = gt r1 l1 || (eq r1 l1 && gt r2 l2)
+                          eq (r1, r2) (l1, l2) = eq r1 l1 && eq r2 l2
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Haskell</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="haskell" style="max-height: 800px">
+                        class Ordered a where
+                          gt :: a -> a -> Bool 
+                          eq :: a -> a -> Bool 
+            </code></pre>
+            <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="haskell" style="max-height: 800px">
+                        instance Ordered Integer where
+                          gt r l = r > l
+                          eq r l = r == l
+                          
+                        instance Ordered String where
+                          gt r l = r > l
+                          eq r l = r == l
+            </code></pre>
+            <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="haskell" style="max-height: 800px" data-noescape>                 
+                        instance <span class="ch">(Ordered a, Ordered b)</span> => Ordered <span class="ch">(a, b)</span> where
+                          <span class="ch">gt</span> (r1, r2) (l1, l2) = <span class="ch">gt</span> r1 l1 || (<span class="ch">eq</span> r1 l1 && <span class="ch">gt</span> r2 l2)
+                          <span class="ch">eq</span> (r1, r2) (l1, l2) = <span class="ch">eq</span> r1 l1 && <span class="ch">eq</span> r2 l2
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Haskell</h2>
+            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="haskell" style="max-height: 800px" data-noescape>
+                    Loaded GHCi configuration from /tmp/haskell-stack-ghci/a76106fb/ghci-script
+
+                    *Ordered Algorithm Ordered> sort [(1, "a"), (-4, "z"), (-4, "e"), (42, "r")]
+                    [(-4,"e"),(-4,"z"),(1,"a"),(42,"r")]
+
+                    *Ordered Algorithm Ordered>        
+            </code></pre>
+            <div style="margin-bottom: 100%"></div>
+        </section>
 
         <section>
             <h2>Rust</h2>
@@ -1287,124 +1402,6 @@
                         }
                     }
             </code></pre>
-        </section>
-
-    </section>
-
-        <section>
-            <h2>Haskell</h2>
-            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="haskell" style="max-height: 800px">
-                        insert :: Ordered a => a -> [a] -> [a]
-                        insert elem [] = [elem]
-                        insert elem (h:t) = if gt elem h then h:(insert elem t) else elem:h:t
-                        
-                        sort :: Ordered a => [a] -> [a]
-                        sort = foldr insert [] 
-            </code></pre>
-            <div style="margin-bottom: 100%"></div>
-        </section>
-
-        <section>
-            <h2>Haskell</h2>
-            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="haskell" style="max-height: 800px" data-noescape>
-                        insert :: <span class="ch">Ordered a =></span> a -> [a] -> [a]
-                        insert elem [] = [elem]
-                        insert elem (h:t) = if gt elem h then h:(insert elem t) else elem:h:t
-                        
-                        sort :: <span class="ch">Ordered a =></span> [a] -> [a]
-                        sort = foldr insert [] 
-            </code></pre>
-            <div style="margin-bottom: 100%"></div>
-        </section>
-
-        <section>
-            <h2>Haskell</h2>
-            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="haskell" style="max-height: 800px" data-noescape>
-                        class Ordered a where
-                          gt :: a -> a -> Bool 
-                          eq :: a -> a -> Bool 
-            </code></pre>             
-            <div style="margin-bottom: 100%"></div>
-        </section>
-
-        <section>
-            <h2>Haskell</h2>
-            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="haskell" style="max-height: 800px" data-noescape>
-                        <span class="ch">class</span> Ordered a <span class="ch">where</span>
-                          gt :: a -> a -> Bool 
-                          eq :: a -> a -> Bool 
-            </code></pre>             
-            <pre class="fragment" style="font-size: 1.1ex; margin-top: 0.1ex"><code class="haskell" style="max-height: 800px">
-                        instance Ordered Integer where
-                          gt r l = r > l
-                          eq r l = r == l
-                          
-                        instance Ordered String where
-                          gt r l = r > l
-                          eq r l = r == l
-            </code></pre>
-            <div style="margin-bottom: 100%"></div>
-        </section>
-
-        <section>
-            <h2>Haskell</h2>
-            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="haskell" style="max-height: 800px">
-                        class Ordered a where
-                          gt :: a -> a -> Bool 
-                          eq :: a -> a -> Bool 
-            </code></pre>             
-            <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="haskell" style="max-height: 800px" data-noescape>
-                        <span class="ch">instance</span> Ordered Integer <span class="ch">where</span>
-                          gt r l = r > l
-                          eq r l = r == l
-                          
-                        <span class="ch">instance</span> Ordered String <span class="ch">where</span>
-                          gt r l = r > l
-                          eq r l = r == l
-            </code></pre>
-            <pre class="fragment" style="font-size: 1.1ex; margin-top: 0.1ex"><code class="haskell" style="max-height: 800px">                 
-                        instance (Ordered a, Ordered b) => Ordered (a, b) where
-                          gt (r1, r2) (l1, l2) = gt r1 l1 || (eq r1 l1 && gt r2 l2)
-                          eq (r1, r2) (l1, l2) = eq r1 l1 && eq r2 l2
-            </code></pre>
-            <div style="margin-bottom: 100%"></div>
-        </section>
-
-        <section>
-            <h2>Haskell</h2>
-            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="haskell" style="max-height: 800px">
-                        class Ordered a where
-                          gt :: a -> a -> Bool 
-                          eq :: a -> a -> Bool 
-            </code></pre>             
-            <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="haskell" style="max-height: 800px">
-                        instance Ordered Integer where
-                          gt r l = r > l
-                          eq r l = r == l
-                          
-                        instance Ordered String where
-                          gt r l = r > l
-                          eq r l = r == l
-            </code></pre>
-            <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="haskell" style="max-height: 800px" data-noescape>                 
-                        instance <span class="ch">(Ordered a, Ordered b)</span> => Ordered <span class="ch">(a, b)</span> where
-                          <span class="ch">gt</span> (r1, r2) (l1, l2) = <span class="ch">gt</span> r1 l1 || (<span class="ch">eq</span> r1 l1 && <span class="ch">gt</span> r2 l2)
-                          <span class="ch">eq</span> (r1, r2) (l1, l2) = <span class="ch">eq</span> r1 l1 && <span class="ch">eq</span> r2 l2
-            </code></pre>
-            <div style="margin-bottom: 100%"></div>
-        </section>
-
-        <section>
-            <h2>Haskell</h2>
-            <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="haskell" style="max-height: 800px" data-noescape>
-                    Loaded GHCi configuration from /tmp/haskell-stack-ghci/a76106fb/ghci-script
-
-                    *Ordered Algorithm Ordered> sort [(1, "a"), (-4, "z"), (-4, "e"), (42, "r")]
-                    [(-4,"e"),(-4,"z"),(1,"a"),(42,"r")]
-
-                    *Ordered Algorithm Ordered>        
-            </code></pre>
-            <div style="margin-bottom: 100%"></div>
         </section>
 
         <section>
