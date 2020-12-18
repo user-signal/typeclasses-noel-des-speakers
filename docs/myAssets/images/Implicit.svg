@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1600"
+   height="700"
+   viewBox="0 0 1600 700"
+   version="1.1"
+   id="SVGRoot"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="Implicit.svg"
+   inkscape:export-filename="/home/fred/Projets/Présentations/typeclasses-noel-des-speakers/docs/myAssets/images/Implicit.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
+  <defs
+     id="defs50">
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Lend"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path4644"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#268bd2;stroke-opacity:1;fill:#268bd2;fill-opacity:1"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(1.1) rotate(180) translate(1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lend"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path4626"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lstart"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path4623"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.8) translate(12.5,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.90509668"
+     inkscape:cx="868.46813"
+     inkscape:cy="393.37087"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer12"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1176"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata53">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="base"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-100)"
+     style="display:inline">
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot83"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.66666603px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"><flowRegion
+         id="flowRegion85"><rect
+           id="rect87"
+           width="707.10681"
+           height="151.36505"
+           x="364.60193"
+           y="174.65244" /></flowRegion><flowPara
+         id="flowPara89" /></flowRoot>    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.66666603px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       x="779.07568"
+       y="591.75531"
+       id="text839"><tspan
+         sodipodi:role="line"
+         id="tspan837"
+         x="779.07568"
+         y="591.75531"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:29.33333397px;font-family:Lato;-inkscape-font-specification:'Lato, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start">foo(...)(implicit bar: Bar) {</tspan><tspan
+         sodipodi:role="line"
+         x="779.07568"
+         y="628.422"
+         id="tspan841"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:29.33333397px;font-family:Lato;-inkscape-font-specification:'Lato, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start">               ...</tspan><tspan
+         sodipodi:role="line"
+         x="779.07568"
+         y="665.08862"
+         id="tspan843"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:29.33333397px;font-family:Lato;-inkscape-font-specification:'Lato, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start">}</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer10"
+     inkscape:label="fragType"
+     style="display:inline">
+    <rect
+       style="fill:#586e75;fill-opacity:0.31764706;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect5239"
+       width="49.718445"
+       height="36.460194"
+       x="1012.0466"
+       y="463.56116" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="frag0"
+     style="display:inline">
+    <ellipse
+       style="fill:none;stroke:#859900;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path847"
+       cx="897.69415"
+       cy="504.65533"
+       rx="249.14465"
+       ry="146.3932" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:21.33333397px;line-height:1.25;font-family:Lato;-inkscape-font-specification:'Lato, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       x="431.99805"
+       y="96.749527"
+       id="text851"><tspan
+         sodipodi:role="line"
+         id="tspan853"
+         x="431.99805"
+         y="116.58953"></tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="frag1">
+    <ellipse
+       style="fill:none;stroke:#859900;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path887"
+       cx="690.05341"
+       cy="67.925056"
+       rx="534.84833"
+       ry="207.09036"
+       transform="rotate(22.864709)" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:21.33333397px;line-height:1.25;font-family:Lato;-inkscape-font-specification:'Lato, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       x="216.32623"
+       y="193.80777"
+       id="text857"><tspan
+         sodipodi:role="line"
+         id="tspan855"
+         x="216.32623"
+         y="193.80777"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:29.33333397px;font-family:Lato;-inkscape-font-specification:'Lato, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start">implicit val bazInstance = new Baz { </tspan><tspan
+         sodipodi:role="line"
+         x="216.32623"
+         y="230.47444"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:29.33333397px;font-family:Lato;-inkscape-font-specification:'Lato, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+         id="tspan893">                   ... </tspan><tspan
+         sodipodi:role="line"
+         x="216.32623"
+         y="267.14111"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:29.33333397px;font-family:Lato;-inkscape-font-specification:'Lato, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+         id="tspan895">}</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer12"
+     inkscape:label="frag1Type">
+    <rect
+       style="fill:#586e75;fill-opacity:0.31764706;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect5239-1-9"
+       width="49.718445"
+       height="36.460194"
+       x="589.43982"
+       y="166.90778" />
+    <rect
+       style="fill:#586e75;fill-opacity:0.31764706;stroke:none;stroke-width:3.50238013;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect5239-1-4-1"
+       width="152.46989"
+       height="36.460194"
+       x="352.44852"
+       y="166.90778" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="frag2">
+    <g
+       id="g4619"
+       style="fill:none;stroke:#f00000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="translate(-83.96893,306.04465)">
+      <path
+         inkscape:connector-curvature="0"
+         id="path897"
+         d="M 311.59102,-178.30474 C 714.81867,-14.895221 714.81867,-14.895221 714.81867,-14.895221"
+         style="fill:none;stroke:#f00000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path897-9"
+         d="M 714.81867,-178.30474 C 311.59102,-14.895222 311.59102,-14.895222 311.59102,-14.895222"
+         style="fill:none;stroke:#f00000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="frag3">
+    <ellipse
+       style="fill:none;stroke:#859900;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path867"
+       ry="196.19533"
+       rx="456.686"
+       cy="766.73615"
+       cx="877.07434"
+       transform="rotate(-24.312806)" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:21.33333397px;line-height:1.25;font-family:Lato;-inkscape-font-specification:'Lato, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       x="986.52228"
+       y="225.96117"
+       id="text861"><tspan
+         sodipodi:role="line"
+         id="tspan859"
+         x="986.52228"
+         y="225.96117"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:29.33333397px;font-family:Lato;-inkscape-font-specification:'Lato, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start">implicit object barInstance extends Bar { </tspan><tspan
+         sodipodi:role="line"
+         x="986.52228"
+         y="262.62784"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:29.33333397px;font-family:Lato;-inkscape-font-specification:'Lato, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+         id="tspan889">                       ... </tspan><tspan
+         sodipodi:role="line"
+         x="986.52228"
+         y="299.29449"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:29.33333397px;font-family:Lato;-inkscape-font-specification:'Lato, Light';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+         id="tspan891">}</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer11"
+     inkscape:label="frag3Type">
+    <rect
+       style="fill:#586e75;fill-opacity:0.31764706;stroke:none;stroke-width:3.50238013;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect5239-1-4"
+       width="152.46989"
+       height="36.460194"
+       x="1163.964"
+       y="197.84369" />
+    <rect
+       style="fill:#586e75;fill-opacity:0.31764706;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect5239-1"
+       width="49.718445"
+       height="36.460194"
+       x="1420.2903"
+       y="197.84369" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer6"
+     inkscape:label="frag4">
+    <path
+       style="fill:none;stroke:#268bd2;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       d="M 1200.9767,242.5903 983.32037,458.0369"
+       id="path4621"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+  </g>
+</svg>
