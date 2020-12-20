@@ -152,7 +152,21 @@
         </section>
 
         <section>
+            <h2>Programmation Générique</h2>
+        </section>
+        
+        <section>
             <img src="myAssets/images/Odersky.png" alt="Type Classes as Objects and Implicits">
+        </section>
+        
+        <section>
+            <h3>Première Itération</h3>
+            <span class="fragment" >
+                <h2 style="margin-top: 4ex">Polymorphisme Paramétrique</h2>
+                <h2>&</h2>
+                <h2>Sous Typage</h2>
+            </span>
+            <div style="margin-bottom: 100%"></div>
         </section>
 
         <section>
@@ -314,14 +328,28 @@
 
         <section>
             <h2>Paramétrique + Sous Typage</h2>
-            <ul style="margin-top: 4em">
+            <ul style="margin-top: 3ex">
                 <li style="font-size: larger" class="fragment green">Liaison Dynamique</li>
                 <li style="margin-top: 1em; font-size: larger" class="fragment orange">Extension Non Rétroactive</li>
             </ul>
         </section>
-        
+
         <section>
-            <h2>Model / Concept</h2>
+            <h3>Deuxième Itération</h3>
+            <h2 class="fragment" style="margin-top: 6ex">Concept & Modèle</h2>
+            <div style="margin-bottom: 100%"></div>
+        </section>
+
+        <section>
+            <h2>Concept / Modèle</h2>
+            <ul style="margin-top: 3ex">
+                <li><span class="magenta">Concept</span><div>expression des exigeances que doivent remplir les</div><div>paramètres de type d'un algorithme générique</div></li>
+                <li style="margin-top: 2ex"><span class="magenta">Modèle</span><div>Mise en œuvre d'un concept pour un type donné</div></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Concept / Modèle</h2>
             <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
                 public static class Algorithm&lt;T&gt;
                 {
@@ -349,7 +377,7 @@
         </section>
 
         <section>
-            <h2>Model / Concept</h2>
+            <h2>Concept / Modèle</h2>
             <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
                 public static class Algorithm&lt;T&gt;
                 {
@@ -377,7 +405,7 @@
         </section>
         
         <section>
-            <h2>Model / Concept</h2>
+            <h2>Concept / Modèle</h2>
             <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
                 public static class Algorithm&lt;T&gt;
                 {
@@ -405,7 +433,7 @@
         </section>
         
         <section>
-            <h2>Model / Concept</h2>
+            <h2>Concept / Modèle</h2>
             <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
             public interface Ordered&lt;in T&gt;
             {
@@ -424,7 +452,7 @@
         </section>
         
         <section>
-            <h2>Model / Concept</h2>
+            <h2>Concept / Modèle</h2>
             <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
             public interface Ordered&lt;in T&gt;
             {
@@ -450,7 +478,7 @@
         </section>
         
         <section>
-            <h2>Model / Concept</h2>
+            <h2>Concept / Modèle</h2>
             <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
             public interface Ordered&lt;in T&gt;
             {
@@ -476,7 +504,7 @@
         </section>
         
         <section>
-            <h2>Model / Concept</h2>
+            <h2>Concept / Modèle</h2>
             <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
             public class PairOrdered&lt;A , B&gt; : Ordered&lt;(A, B)&gt;
             {
@@ -495,7 +523,7 @@
         </section>
         
         <section>
-            <h2>Model / Concept</h2>
+            <h2>Concept / Modèle</h2>
             <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
             public class PairOrdered&lt;<span class="ch">A , B</span>&gt; : Ordered&lt;<span class="ch">(A, B)</span>&gt;
             {
@@ -514,7 +542,7 @@
         </section>
         
         <section>
-            <h2>Model / Concept</h2>
+            <h2>Concept / Modèle</h2>
             <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
             public class PairOrdered&lt;A , B&gt; : Ordered&lt;(A, B)&gt;
             {
@@ -533,7 +561,7 @@
         </section>
         
         <section>
-            <h2>Model / Concept</h2>
+            <h2>Concept / Modèle</h2>
             <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
         public void IntOrdTest()
         {
@@ -548,7 +576,7 @@
         </section>
         
         <section>
-            <h2>Model / Concept</h2>
+            <h2>Concept / Modèle</h2>
             <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
         public void IntOrdTest()
         {
@@ -563,7 +591,7 @@
         </section>
         
         <section>
-            <h2>Model / Concept</h2>
+            <h2>Concept / Modèle</h2>
             <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
         public void IntOrdTest()
         {
@@ -592,7 +620,7 @@
         </section>
         
         <section>
-            <h2>Model / Concept</h2>
+            <h2>Concept / Modèle</h2>
             <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
         public void IntOrdTest()
         {
@@ -621,14 +649,20 @@
         </section>
 
         <section>
-            <h2>Model / Concept</h2>
-            <ul style="margin-top: 4em">
+            <h2>Concept / Modèle</h2>
+            <ul style="margin-top: 3ex">
                 <li style="font-size: larger" class="fragment green">Extension Rétroactive</li>
                 <li style="font-size: larger" class="fragment green">Mise en Œuvre Multiples</li>
                 <li style="font-size: larger" class="fragment green">Méthodes N-aires</li>
                 <li style="font-size: larger" class="fragment green">Méthodes Statiques</li>
                 <li style="margin-top: 1em; font-size: larger" class="fragment orange">Liaison Dynamique</li>
             </ul>
+        </section>
+
+        <section>
+            <h3>Troisième Itération</h3>
+            <h2 class="fragment" style="margin-top: 6ex">Arguments Implicites</h2>
+            <div style="margin-bottom: 100%"></div>
         </section>
         
         <section>
@@ -1018,7 +1052,7 @@
 
         <section>
             <h2>Arguments Implicites</h2>
-            <ul style="margin-top: 4em">
+            <ul style="margin-top: 3ex">
                 <li style="font-size: larger" class="fragment green">Moins de Bruit</li>
                 <li style="font-size: larger" class="fragment green">Type Classes Idiomatiques</li>
                 <li style="margin-top: 1em; font-size: larger" class="fragment orange">Type Classes Idiomatiques</li>
@@ -1148,7 +1182,7 @@
 
         <section>
             <h2>Haskell</h2>
-            <ul style="margin-top: 3em">
+            <ul style="margin-top: 3ex">
                 <li style="font-size: larger" class="fragment">Traduction λ-calcul Second Ordre</li>
                 <li style="font-size: larger" class="fragment">Passage Dictionnaire</li>
                 <li style="margin-top: 1em; font-size: larger" class="fragment green">Construction du Langage</li>
@@ -1339,6 +1373,15 @@
             </code></pre>
             <div style="margin-bottom: 100%"></div>
         </section>
+
+        <section>
+            <h2>Rust</h2>
+            <ul style="margin-top: 3ex">
+                <li style="font-size: larger" class="fragment">Monomorphisation</li>
+                <li style="margin-top: 1em; font-size: larger" class="fragment green">Construction du Langage</li>
+                <li style="margin-top: 1em; font-size: larger" class="fragment orange">Extension rétroactive ?</li>
+            </ul>
+        </section>    
 
         <section>
             <h2>Rust</h2>
