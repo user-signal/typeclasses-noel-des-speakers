@@ -98,7 +98,6 @@
                 </div>
                 <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class=ocaml" style="max-height: 800px"
                                                                        data-noescape>
-                    
                             (* Objective Caml *)
                                 
                             # let rec map f l = match l with
@@ -106,16 +105,15 @@
                               | nil -> nil
                               ;;
                             val map : ('a -> 'a) -> 'a list -> 'a list = &lt;fun&gt;                    
-                    
             </code></pre>
-                <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="rust" style="max-height: 800px">
-                    
-                            // Rust
+                <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="java" style="max-height: 800px">
+                            // Java
                                 
-                            struct List&lt;T&gt; : { 
-                                public elem: T;
+                            public class Packet&lt;T extends Serializable&gt; : {
+                                payload : T;
+                                header : Header;
+                                ...
                             }
-                    
             </code></pre>
             </div>
             <div style="margin-bottom: 100%"></div>
@@ -124,9 +122,7 @@
         <section>
             <h2>Polymorphisme(s)</h2>
             <div>
-                <div style="margin-right: auto; margin-left: auto; margin-top: 2em; width: 98%; text-align: left">Ad
-                    Hoc
-                </div>
+                <div style="margin-right: auto; margin-left: auto; margin-top: 2em; width: 98%; text-align: left">Ad Hoc <a style="font-size: smaller" href="https://en.wikipedia.org/wiki/Polymorphism_(computer_science)#Ad_hoc_polymorphism"> [Source Wikipédia]</a></div>
                 <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="pascal" style="max-height: 800px">
                             (* Pascal *)
                             
@@ -167,7 +163,7 @@
         </section>
         
         <section>
-            <h3>Première Itération</h3>
+            <h3>Première Itération [ <span class="orange">C#</span> ]</h3>
             <span class="fragment" >
                 <h2 style="margin-top: 4ex">Polymorphisme Paramétrique</h2>
                 <h2>&</h2>
@@ -342,7 +338,7 @@
         </section>
 
         <section>
-            <h3>Deuxième Itération</h3>
+            <h3>Deuxième Itération [ <span class="orange">C#</span> ]</h3>
             <h2 class="fragment" style="margin-top: 6ex">Concept & Modèle</h2>
             <div style="margin-bottom: 100%"></div>
         </section>
@@ -668,7 +664,7 @@
         </section>
 
         <section>
-            <h3>Troisième Itération</h3>
+            <h3>Troisième Itération [ <span class="orange">Scala</span> ]</h3>
             <h2 class="fragment" style="margin-top: 6ex">Arguments Implicites</h2>
             <div style="margin-bottom: 100%"></div>
         </section>
