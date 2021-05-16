@@ -61,12 +61,14 @@
         </section>
 
         <section>
+            <img src="myAssets/images/WadlerHL.png" alt="Making Ad-Hoc Polymorphism Less Ad-Hoc">
+        </section>
+
+        <section>
             <h2>Polymorphisme(s)</h2>
             <div>
-                <div style="margin-right: auto; margin-left: auto; margin-top: 2em; width: 98%; text-align: left">Sous
-                    Typage
-                </div>
-                <pre style="font-size: 1.1ex; margin-top: 0.1ex"><code class="csharp" style="max-height: 800px">
+                <div style="margin-right: auto; margin-left: auto; margin-top: 2em; width: 98%; text-align: left">Inclusion</div>
+                <pre style  ="font-size: 1.1ex; margin-top: 0.1ex"><code class="csharp" style="max-height: 800px">
                             // C#  
             
                             interface Shape
@@ -167,13 +169,13 @@
             <span class="fragment" >
                 <h2 style="margin-top: 4ex">Polymorphisme Paramétrique</h2>
                 <h2>&</h2>
-                <h2>Sous Typage</h2>
+                <h2>Inclusion</h2>
             </span>
             <div style="margin-bottom: 100%"></div>
         </section>
 
         <section>
-            <h2>Paramétrique + Sous Typage</h2>
+            <h2>Paramétrique + Inclusion</h2>
             <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px">
                 public static class Algorithm&lt;T&gt; where T : Ordered&lt;T&gt;
                 {
@@ -200,7 +202,7 @@
         </section>
 
         <section>
-            <h2>Paramétrique + Sous Typage</h2>
+            <h2>Paramétrique + Inclusion</h2>
             <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
                 public static class Algorithm&lt;T&gt; where T : Ordered&lt;T&gt;
                 {
@@ -227,7 +229,7 @@
         </section>
 
         <section>
-            <h2>Paramétrique + Sous Typage</h2>
+            <h2>Paramétrique + Inclusion</h2>
             <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
                 public static class Algorithm&lt;T&gt; <span class="ch">where T : Ordered&lt;T&gt;</span>
                 {
@@ -254,7 +256,7 @@
         </section>
 
         <section>
-            <h2>Paramétrique + Sous Typage</h2>
+            <h2>Paramétrique + Inclusion</h2>
             <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
         public interface Ordered&lt;in T&gt;
         {
@@ -282,22 +284,22 @@
         </section>
 
         <section>
-            <h2>Paramétrique + Sous Typage</h2>
+            <h2>Paramétrique + Inclusion</h2>
             <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
                             public void IntOrdTest()
                             {
                                 var intOrds = new List&lt;IntOrdered&gt; {
-                                    new IntOrdered {Value = 1}, 
-                                    new IntOrdered {Value = -4}, 
-                                    new IntOrdered {Value = 42}, 
-                                    new IntOrdered {Value = 12}
+                                    new() {Value = 1}, 
+                                    new() {Value = -4}, 
+                                    new() {Value = 42}, 
+                                    new() {Value = 12}
                                 };
                                 var actual = Sort(intOrds);
                                 var expected = new List&lt;IntOrdered&gt; {
-                                    new IntOrdered {Value = -4}, 
-                                    new IntOrdered {Value = 1}, 
-                                    new IntOrdered {Value = 12}, 
-                                    new IntOrdered {Value = 42}
+                                    new() {Value = -4}, 
+                                    new() {Value = 1}, 
+                                    new() {Value = 12}, 
+                                    new() {Value = 42}
                                 };
                                 Assert.IsTrue(Equality(actual, expected));
                             }
@@ -306,22 +308,22 @@
         </section>
 
         <section>
-            <h2>Paramétrique + Sous Typage</h2>
+            <h2>Paramétrique + Inclusion</h2>
             <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
                             public void StringOrdTest()
                             {
                                 var stringOrds = new List&lt;StringOrdered&gt; {
-                                    new StringOrdered {Value = "a"}, 
-                                    new StringOrdered {Value = "z"}, 
-                                    new StringOrdered {Value = "e"}, 
-                                    new StringOrdered {Value = "r"}
+                                    new() {Value = "a"}, 
+                                    new() {Value = "z"}, 
+                                    new() {Value = "e"}, 
+                                    new() {Value = "r"}
                                 };
                                 var actual = Sort(stringOrds);
                                 var expected = new List&lt;StringOrdered&gt; {
-                                    new StringOrdered {Value = "a"}, 
-                                    new StringOrdered {Value = "e"}, 
-                                    new StringOrdered {Value = "r"}, 
-                                    new StringOrdered {Value = "z"}
+                                    new() {Value = "a"}, 
+                                    new() {Value = "e"}, 
+                                    new() {Value = "r"}, 
+                                    new() {Value = "z"}
                                 };
                                 Assert.IsTrue(Equality(actual, expected));
                             }
@@ -330,7 +332,7 @@
         </section>
 
         <section>
-            <h2>Paramétrique + Sous Typage</h2>
+            <h2>Paramétrique + Inclusion</h2>
             <ul style="margin-top: 3ex">
                 <li style="font-size: larger" class="fragment green">Liaison Dynamique</li>
                 <li style="margin-top: 1em; font-size: larger" class="fragment orange">Extension Non Rétroactive</li>
@@ -354,9 +356,9 @@
         <section>
             <h2>Concept / Modèle</h2>
             <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
-                public static class Algorithm&lt;T&gt;
+                public static class Algorithm
                 {
-                    public static List&lt;T&gt; Sort(List&lt;T&gt; source, Ordered&lt;T&gt; model)
+                    public static List&lt;T&gt; Sort&lt;T&gt;(List&lt;T&gt; source, Ordered&lt;T&gt; model)
                     {
                         var result = new List&lt;T&gt;();
                         foreach (var s in source)
@@ -372,7 +374,7 @@
                         return result;
                     }
             
-                    public static bool Equality(List&lt;T&gt; list1, List&lt;T&gt; list2, Ordered&lt;T&gt; model) =>
+                    public static bool Equality&lt;T&gt;(List&lt;T&gt; list1, List&lt;T&gt; list2, Ordered&lt;T&gt; model) =>
                         list1.Count == list2.Count && list1.Zip(list2).All(p => model.eq(p.First, p.Second));
                 }
             </code></pre>
@@ -382,9 +384,9 @@
         <section>
             <h2>Concept / Modèle</h2>
             <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
-                public static class Algorithm&lt;T&gt;
+                public static class Algorithm
                 {
-                    public static List&lt;T&gt; Sort(List&lt;T&gt; source, <span class="ch">Ordered&lt;T&gt; model</span>)
+                    public static List&lt;T&gt; Sort&lt;T&gt;(List&lt;T&gt; source, <span class="ch">Ordered&lt;T&gt; model</span>)
                     {
                         var result = new List&lt;T&gt;();
                         foreach (var s in source)
@@ -400,7 +402,7 @@
                         return result;
                     }
             
-                    public static bool Equality(List&lt;T&gt; list1, List&lt;T&gt; list2, <span class="ch">Ordered&lt;T&gt; model</span>) =>
+                    public static bool Equality&lt;T&gt;(List&lt;T&gt; list1, List&lt;T&gt; list2, <span class="ch">Ordered&lt;T&gt; model</span>) =>
                         list1.Count == list2.Count && list1.Zip(list2).All(p => model.eq(p.First, p.Second));
                 }
             </code></pre>
@@ -410,9 +412,9 @@
         <section>
             <h2>Concept / Modèle</h2>
             <pre style="font-size: 1.1ex; margin-top: 3ex"><code class="c#" style="max-height: 800px" data-noescape>
-                public static class Algorithm&lt;T&gt;
+                public static class Algorithm
                 {
-                    public static List&lt;T&gt; Sort(List&lt;T&gt; source, Ordered&lt;T&gt; model)
+                    public static List&lt;T&gt; Sort&lt;T&gt;(List&lt;T&gt; source, Ordered&lt;T&gt; model)
                     {
                         var result = new List&lt;T&gt;();
                         foreach (var s in source)
@@ -428,7 +430,7 @@
                         return result;
                     }
             
-                    public static bool Equality(List&lt;T&gt; list1, List&lt;T&gt; list2, Ordered&lt;T&gt;) =>
+                    public static bool Equality&lt;T&gt;(List&lt;T&gt; list1, List&lt;T&gt; list2, Ordered&lt;T&gt;) =>
                         list1.Count == list2.Count && list1.Zip(list2).All(p => <span class="ch">model.eq(p.First, p.Second)</span>);
                 }
             </code></pre>
@@ -656,8 +658,6 @@
             <ul style="margin-top: 3ex">
                 <li style="font-size: larger" class="fragment green">Extension Rétroactive</li>
                 <li style="font-size: larger" class="fragment green">Mise en Œuvre Multiples</li>
-                <li style="font-size: larger" class="fragment green">Méthodes N-aires</li>
-                <li style="font-size: larger" class="fragment green">Méthodes « Usine »</li>
                 <li style="margin-top: 1em; font-size: larger" class="fragment orange">Liaison Dynamique</li>
                 <li style="font-size: larger" class="fragment orange">Bruit</li>
             </ul>

@@ -1,8 +1,6 @@
 using System.Collections.Generic;
 using NUnit.Framework;
-using static Typeclasses.Concept.Algorithm<int>;
-using static Typeclasses.Concept.Algorithm<string>;
-using static Typeclasses.Concept.Algorithm<(int, string)>;
+using static Typeclasses.Concept.Algorithm;
 
 namespace Typeclasses.Concept
 {

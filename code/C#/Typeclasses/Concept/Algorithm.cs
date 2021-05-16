@@ -3,9 +3,9 @@ using System.Linq;
 
 namespace Typeclasses.Concept
 {
-    public static class Algorithm<T>
+    public static class Algorithm
     {
-        public static List<T> Sort(List<T> source, Ordered<T> model)
+        public static List<T> Sort<T>(List<T> source, Ordered<T> model)
         {
             var result = new List<T>();
             foreach (var s in source)
@@ -21,7 +21,7 @@ namespace Typeclasses.Concept
             return result;
         }
 
-        public static bool Equality(List<T> list1, List<T> list2, Ordered<T> model) =>
+        public static bool Equality<T>(List<T> list1, List<T> list2, Ordered<T> model) =>
             list1.Count == list2.Count && list1.Zip(list2).All(p => model.eq(p.First, p.Second));
     }
 }
